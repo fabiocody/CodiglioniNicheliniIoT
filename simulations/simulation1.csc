@@ -8,8 +8,8 @@
   <project EXPORT="discard">[APPS_DIR]/powertracker</project>
   <simulation>
     <title>Simulation1</title>
-    <speedlimit>2.0</speedlimit>
-    <randomseed>generated</randomseed>
+    <speedlimit>10.0</speedlimit>
+    <randomseed>123462</randomseed>
     <motedelay_us>1000000</motedelay_us>
     <radiomedium>
       se.sics.cooja.radiomediums.UDGM
@@ -146,7 +146,7 @@
   <plugin>
     se.sics.cooja.plugins.SimControl
     <width>280</width>
-    <z>1</z>
+    <z>0</z>
     <height>160</height>
     <location_x>400</location_x>
     <location_y>0</location_y>
@@ -162,7 +162,7 @@
       <viewport>3.301241431676362 0.0 0.0 3.301241431676362 31.776494818639883 17.07945433054791</viewport>
     </plugin_config>
     <width>400</width>
-    <z>2</z>
+    <z>1</z>
     <height>400</height>
     <location_x>1</location_x>
     <location_y>1</location_y>
@@ -175,7 +175,7 @@
       <coloring />
     </plugin_config>
     <width>1960</width>
-    <z>0</z>
+    <z>2</z>
     <height>836</height>
     <location_x>400</location_x>
     <location_y>160</location_y>

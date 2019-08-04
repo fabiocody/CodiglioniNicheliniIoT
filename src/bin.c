@@ -64,7 +64,7 @@ PROCESS_THREAD(announce_proc, ev, data) {
     PROCESS_BEGIN();
     broadcast_open(&broadcast, 129, &broadcast_call);
     while (1) {
-        etimer_set(&et, CLOCK_SECOND * (5 + random_rand() % 11));
+        etimer_set(&et, CLOCK_SECOND * (10 + random_rand() % 21));
         PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
         packetbuf_copyfrom(&msg, sizeof(announce_msg_t));
         broadcast_send(&broadcast);
@@ -77,7 +77,7 @@ PROCESS_THREAD(debug_print_proc, ev, data) {
     static struct etimer et;
     PROCESS_BEGIN();
     while (1) {
-        etimer_set(&et, CLOCK_SECOND * 10);
+        etimer_set(&et, CLOCK_SECOND * 30);
         PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
         neighbor_t *n;
         for (n = list_head(neighbors_list); n != NULL; n = list_item_next(n))
