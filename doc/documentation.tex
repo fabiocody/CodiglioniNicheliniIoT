@@ -1,73 +1,78 @@
-\documentclass[a4paper, 11pt, parskip=half]{scrartcl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ELEE	3720 Electromechanical Energy Conversion: Report template
+% By Ratheesh Ravindran
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{bera}
+\graphicspath{{Images/}}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{hyperref}
+ \usepackage{float}
 
-\usepackage[automark]{scrlayer-scrpage}         % Headings
-\usepackage{bera}                               % Default font
-\usepackage{sourcecodepro}                      % Monospace font
-\usepackage[utf8]{inputenc}                     % Input encoding
-\usepackage[T1]{fontenc}                        % Output encoding
-\usepackage{graphicx}                           % Pictures
-\usepackage{listings}                           % Code snippets
-\usepackage{hyperref}                           % Make strings clickable
-\usepackage{amsmath}                            % Math library
-\usepackage{amssymb}                            % Math symbols
-\usepackage{amsthm}                             % Definitions, theorems, corollaries, ...
-\usepackage{mathtools}                          % Math stuff
-\usepackage[usenames,dvipsnames,table]{xcolor}  % Colors
-\usepackage[toc,page]{appendix}                 % Support for appendices
-\usepackage[section]{algorithm}                 % Pseudocode headers
-\usepackage{algpseudocode}                      % Pseudocode
-\usepackage{pdfpages}                           % Embed external pdf
-\usepackage{wrapfig}                            % Wrap text around figures
-\usepackage{multicol}                           % Used for multicolumn itemize
-\usepackage{multirow}                           % Used for multirow in tables
-\usepackage{longtable}                          % Tables can spread over multiple pages
-
-
-% Title page info
-\title{Title}
-\subtitle{Subtitle}
-\date{\vspace{-5ex}}
-\author{Authors}
-
-
-
-
-% Document-wise commands
-\areaset{17cm}{22.5cm}              % Set page width and height
-\hypersetup{linktoc=all}            % Set TOC clickable
-\lstset{ 
-    belowcaptionskip=\baselineskip,
-    aboveskip=\baselineskip,
-    breaklines=true,
-    frame=l,
-    xleftmargin=0.5in,
-    showstringspaces=false,
-    basicstyle=\footnotesize\ttfamily,
-    keywordstyle=\bfseries\color{green!40!black},
-    commentstyle=\color{MidnightBlue},
-    stringstyle=\color{BrickRed},
-    numbers=left,
-    tabsize=4
-}
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}[section]
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{corollary}{Corollary}[theorem]
-
-
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
 \begin{document}
+\begin{titlepage}
+\newcommand{\HRule}{\rule{\linewidth}{0.1mm}} 
+\center % Center everything on the page
+ 
 
-% Title page and TOC
-%\pagenumbering{gobble}
-\maketitle
-%\pagenumbering{roman}
-%\tableofcontents
-%\newpage
-\pagenumbering{arabic}
+\textsc{Computer science engineering}\\[0.3cm] % heading course Number
+\textsc{\Large Internet Of Things}\\[0.5cm] % heading course name
+\textsc{\large Project n°1}\\[0.5cm] % Minor heading
 
 
-% Body
+\HRule \\[0.4cm]
+{ \huge \bfseries Waste management system}\\[0.1cm] % Title of your Homework/assignment
+\HRule \\[1.5cm]
+ 
+%---------------------------------------------------------------------------------
+%	AUTHOR SECTION (EDIT THE NAME and T.NO., only)
+%---------------------------------------------------------------------------------
 
-\section{A section}
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+
+Fabio \textsc{Codiglioni}\\T.No.  % Enter Your name and T.No.
+\end{flushleft}
+\begin{flushleft} \large
+
+
+Alessandro \textsc{Nichelini}\\ 949880 - 10497404.  % Enter Your name and T.No.
+\end{flushleft}
+
+
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{Professor:} \\
+Matteo \textsc{Cesana} % Supervisor's Name
+\end{flushright}
+\end{minipage}\\[1cm]
+{\large \today}\\[1cm] % Date, change the \today to a set date if you want to be precise
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth,height=5.7cm,keepaspectratio]{resources/polimi_logo}% \\[0.5cm] % 
+\end{figure}
+
+\vfill % Fill the rest of the page with white-space
+
+\end{titlepage}
+
+\tableofcontents          % Required
+\listoffigures
+\newpage
+
+% Do not edit the below sections, enter all details in respective chapters
+% Add the images/screen-shorts to the image folder and insert them in the respective chapters
+\section{Abstract}
+\input{chapters/01_Abstract}
+
+
+
 
 \end{document}
