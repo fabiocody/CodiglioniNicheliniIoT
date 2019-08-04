@@ -1,2 +1,73 @@
-ciao
-prova
+\documentclass[a4paper, 11pt, parskip=half]{scrartcl}
+
+\usepackage[automark]{scrlayer-scrpage}         % Headings
+\usepackage{bera}                               % Default font
+\usepackage{sourcecodepro}                      % Monospace font
+\usepackage[utf8]{inputenc}                     % Input encoding
+\usepackage[T1]{fontenc}                        % Output encoding
+\usepackage{graphicx}                           % Pictures
+\usepackage{listings}                           % Code snippets
+\usepackage{hyperref}                           % Make strings clickable
+\usepackage{amsmath}                            % Math library
+\usepackage{amssymb}                            % Math symbols
+\usepackage{amsthm}                             % Definitions, theorems, corollaries, ...
+\usepackage{mathtools}                          % Math stuff
+\usepackage[usenames,dvipsnames,table]{xcolor}  % Colors
+\usepackage[toc,page]{appendix}                 % Support for appendices
+\usepackage[section]{algorithm}                 % Pseudocode headers
+\usepackage{algpseudocode}                      % Pseudocode
+\usepackage{pdfpages}                           % Embed external pdf
+\usepackage{wrapfig}                            % Wrap text around figures
+\usepackage{multicol}                           % Used for multicolumn itemize
+\usepackage{multirow}                           % Used for multirow in tables
+\usepackage{longtable}                          % Tables can spread over multiple pages
+
+
+% Title page info
+\title{Title}
+\subtitle{Subtitle}
+\date{\vspace{-5ex}}
+\author{Authors}
+
+
+
+
+% Document-wise commands
+\areaset{17cm}{22.5cm}              % Set page width and height
+\hypersetup{linktoc=all}            % Set TOC clickable
+\lstset{ 
+    belowcaptionskip=\baselineskip,
+    aboveskip=\baselineskip,
+    breaklines=true,
+    frame=l,
+    xleftmargin=0.5in,
+    showstringspaces=false,
+    basicstyle=\footnotesize\ttfamily,
+    keywordstyle=\bfseries\color{green!40!black},
+    commentstyle=\color{MidnightBlue},
+    stringstyle=\color{BrickRed},
+    numbers=left,
+    tabsize=4
+}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+
+
+\begin{document}
+
+% Title page and TOC
+%\pagenumbering{gobble}
+\maketitle
+%\pagenumbering{roman}
+%\tableofcontents
+%\newpage
+\pagenumbering{arabic}
+
+
+% Body
+
+\section{A section}
+
+\end{document}
