@@ -86,12 +86,12 @@ static void broadcast_recv(struct broadcast_conn *c, const rimeaddr_t *from) {
 
 
 static void handle_truck_msg() {
-    printf("TRUCK MSG");
+    puts("TRUCK MSG");
     trash = 0;
     alert_mode = FALSE;
     truck_ack_t msg = {TRUCK_ACK};
     packetbuf_copyfrom(&msg, sizeof(truck_ack_t));
-    while (runicast_is_transmitting(&uc));
+    //while (runicast_is_transmitting(&uc));
     runicast_send(&uc, &truck_addr, MAX_RETRANSMISSIONS);
 }
 
