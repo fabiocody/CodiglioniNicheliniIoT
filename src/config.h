@@ -1,9 +1,16 @@
+// config.h
+
 #ifndef CONFIG_H
 #define CONFIG_H
 
 #define UNICAST_CHANNEL 144
 #define BROADCAST_CHANNEL 129
+#define TRUCK_ADDR 42
 #define BIN_TO_BIN_ALPHA 0.1
-#define BIN_TO_TRUCK 0.2
+#define BIN_TO_TRUCK_ALPHA 1
+#define MAX_RETRANSMISSIONS 4
+#define FULL_THRESHOLD 40
+#define ALERT_THRESHOLD FULL_THRESHOLD-15
+
 
 #endif // CONFIG_H

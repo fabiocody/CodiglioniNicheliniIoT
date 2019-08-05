@@ -16,9 +16,6 @@
 #define ALERT_EVENT 254
 #define FULL_EVENT 255
 
-#define FULL_THRESHOLD 100
-#define ALERT_THRESHOLD FULL_THRESHOLD - 15
-
 #define FALSE 0
 #define TRUE  1
 
@@ -43,10 +40,12 @@ AUTOSTART_PROCESSES(&announce_proc, &trash_proc, &alert_mode_proc, &full_mode_pr
 
 
 static struct broadcast_conn bc;
+static struct runicast_conn uc;
 static unsigned char trash = 0;
 static unsigned char x = 0;
 static unsigned char y = 0;
 static unsigned char alert_mode = FALSE;
+static const rimeaddr_t truck_addr = {{TRUCK_ADDR, 0}};
 
 
 static void handle_announce_msg(const rimeaddr_t *from) {
@@ -65,9 +64,8 @@ static void handle_announce_msg(const rimeaddr_t *from) {
 }
 
 
-static void handle_alert_msg(alert_msg_t *msg) {
-    printf("ALERT MSG from node %u at %u;%u\n", msg->id, msg->x, msg->y);
-    packetbuf_clear();
+static void handle_move_msg() {
+    // TODO
 }
 
 
@@ -78,17 +76,57 @@ static void broadcast_recv(struct broadcast_conn *c, const rimeaddr_t *from) {
         case ANNOUNCE_MSG:
             handle_announce_msg(from);
             break;
-        case ALERT_MSG:
-            handle_alert_msg((alert_msg_t *)msg);
-            break;
         case MOVE_MSG:
+            handle_move_msg();
             break;
+        default:
+            printf("ERROR: undefined broadcast message received from %u\n", from->u8[0]);
+    }
+}
+
+
+static void handle_truck_msg() {
+    printf("TRUCK MSG");
+    trash = 0;
+    alert_mode = FALSE;
+    truck_ack_t msg = {TRUCK_ACK};
+    packetbuf_copyfrom(&msg, sizeof(truck_ack_t));
+    while (runicast_is_transmitting(&uc));
+    runicast_send(&uc, &truck_addr, MAX_RETRANSMISSIONS);
+}
+
+
+static void handle_move_reply() {
+    // TODO
+}
+
+
+static void handle_trash_msg() {
+    // TODO
+}
+
+
+static void unicast_recv(struct runicast_conn *c, const rimeaddr_t *from, uint8_t seqno) {
+    void *msg = packetbuf_dataptr();
+    unsigned char msg_type = GET_MSG_TYPE(msg);
+    switch (msg_type) {
+        case TRUCK_MSG:
+            handle_truck_msg();
+            break;
+        case MOVE_REPLY:
+            handle_move_reply();
+            break;
+        case TRASH_MSG:
+            handle_trash_msg();
+            break;
+        default:
+            printf("ERROR: undefined unicast message received from %u\n", from->u8[0]);
     }
 }
 
 
 static const struct broadcast_callbacks broadcast_call = {broadcast_recv};
-static const struct runicast_callbacks runicast_call = {};
+static const struct runicast_callbacks unicast_call = {unicast_recv};
 
 
 // NEIGHBOUR DISCOVERY PROCESS
@@ -139,16 +177,19 @@ PROCESS_THREAD(trash_proc, ev, data) {
 PROCESS_THREAD(alert_mode_proc, ev, data) {
     static struct etimer et;
     static alert_msg_t msg = {ALERT_MSG};
+    PROCESS_EXITHANDLER(runicast_close(&uc));
+    PROCESS_BEGIN();
     msg.x = x;
     msg.y = y;
     msg.id = rimeaddr_node_addr.u8[0];
-    PROCESS_BEGIN();
+    runicast_open(&uc, UNICAST_CHANNEL, &unicast_call);
     while (1) {
         PROCESS_WAIT_EVENT();
         if (ev == ALERT_EVENT) 
             while (alert_mode) {
                 packetbuf_copyfrom(&msg, sizeof(alert_msg_t));
-                broadcast_send(&bc);
+                while (!runicast_is_transmitting(&uc));
+                runicast_send(&uc, &truck_addr, MAX_RETRANSMISSIONS);
                 etimer_set(&et, CLOCK_SECOND * 5);
                 PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
             }
