@@ -8,7 +8,6 @@
 
 
 // BROADCAST: BIN->BIN
-#define ANNOUNCE_MSG  0
 #define     MOVE_MSG  1
 
 // UNICAST: BIN->BIN
@@ -24,11 +23,6 @@
 
 
 #define GET_MSG_TYPE(msg) (*(unsigned char *)msg)
-
-
-typedef struct {
-    unsigned char type;
-} announce_msg_t;
 
 
 typedef struct {
