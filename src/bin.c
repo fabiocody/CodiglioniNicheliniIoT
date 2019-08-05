@@ -124,9 +124,21 @@ static void unicast_recv(struct runicast_conn *c, const rimeaddr_t *from, uint8_
     }
 }
 
+static void sent_runicast(struct runicast_conn *c, const rimeaddr_t *to, uint8_t retransmissions)
+{
+  printf("runicast message sent to %d.%d, retransmissions %d\n",
+         to->u8[0], to->u8[1], retransmissions);
+}
+
+static void timedout_runicast(struct runicast_conn *c, const rimeaddr_t *to, uint8_t retransmissions)
+{
+  printf("runicast message timed out when sending to %d.%d, retransmissions %d\n",
+         to->u8[0], to->u8[1], retransmissions);
+}
+
 
 static const struct broadcast_callbacks broadcast_call = {broadcast_recv};
-static const struct runicast_callbacks unicast_call = {unicast_recv};
+static const struct runicast_callbacks unicast_call = {unicast_recv, sent_runicast, timedout_runicast};
 
 
 // NEIGHBOUR DISCOVERY PROCESS
@@ -188,7 +200,7 @@ PROCESS_THREAD(alert_mode_proc, ev, data) {
         if (ev == ALERT_EVENT) 
             while (alert_mode) {
                 packetbuf_copyfrom(&msg, sizeof(alert_msg_t));
-                while (!runicast_is_transmitting(&uc));
+                //while (!runicast_is_transmitting(&uc));
                 runicast_send(&uc, &truck_addr, MAX_RETRANSMISSIONS);
                 etimer_set(&et, CLOCK_SECOND * 5);
                 PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
