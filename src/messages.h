@@ -3,8 +3,8 @@
 #include "contiki.h"
 
 
-// IDEAS
-// msg_id
+#ifndef MESSAGES_H
+#define MESSAGES_H
 
 
 #define ANNOUNCE_MSG  0
@@ -13,6 +13,8 @@
 #define     MOVE_MSG  3
 #define    TRASH_MSG  4
 #define   MOVE_REPLY  5
+
+#define GET_MSG_TYPE(msg) (*(unsigned char *)msg)
 
 
 typedef struct {
@@ -51,4 +53,4 @@ typedef struct {
 } trash_msg_t;
 
 
-#define GET_MSG_TYPE(msg) (*(unsigned char *)msg)
+#endif // MESSAGES_H

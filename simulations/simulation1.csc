@@ -146,7 +146,7 @@
   <plugin>
     se.sics.cooja.plugins.SimControl
     <width>280</width>
-    <z>0</z>
+    <z>1</z>
     <height>160</height>
     <location_x>400</location_x>
     <location_y>0</location_y>
@@ -162,7 +162,7 @@
       <viewport>3.301241431676362 0.0 0.0 3.301241431676362 31.776494818639883 17.07945433054791</viewport>
     </plugin_config>
     <width>400</width>
-    <z>1</z>
+    <z>4</z>
     <height>400</height>
     <location_x>1</location_x>
     <location_y>1</location_y>
@@ -174,11 +174,11 @@
       <formatted_time />
       <coloring />
     </plugin_config>
-    <width>1960</width>
+    <width>1079</width>
     <z>2</z>
-    <height>836</height>
-    <location_x>400</location_x>
-    <location_y>160</location_y>
+    <height>572</height>
+    <location_x>401</location_x>
+    <location_y>161</location_y>
   </plugin>
   <plugin>
     se.sics.cooja.plugins.TimeLine
@@ -195,11 +195,11 @@
       <showLEDs />
       <zoomfactor>500.0</zoomfactor>
     </plugin_config>
-    <width>2360</width>
-    <z>4</z>
-    <height>166</height>
-    <location_x>0</location_x>
-    <location_y>1181</location_y>
+    <width>1479</width>
+    <z>3</z>
+    <height>223</height>
+    <location_x>1</location_x>
+    <location_y>733</location_y>
   </plugin>
   <plugin>
     se.sics.cooja.plugins.Notes
@@ -207,11 +207,11 @@
       <notes>Enter notes here</notes>
       <decorations>true</decorations>
     </plugin_config>
-    <width>1680</width>
-    <z>3</z>
+    <width>800</width>
+    <z>0</z>
     <height>160</height>
     <location_x>680</location_x>
-    <location_y>0</location_y>
+    <location_y>1</location_y>
   </plugin>
 </simconf>
 
