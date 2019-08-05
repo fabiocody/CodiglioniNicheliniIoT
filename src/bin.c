@@ -16,8 +16,13 @@ typedef struct neighbor {
 
 
 #define MAX_NEIGHBORS 8
+#define MAX_GEN_TRASH 10
+
 #define ALERT_EVENT 254
 #define FULL_EVENT 255
+
+#define FULL_THRESHOLD 100
+#define ALERT_THRESHOLD FULL_THRESHOLD - 15
 
 
 MEMB(neighbors_memb, neighbor_t, MAX_NEIGHBORS);
@@ -30,7 +35,7 @@ PROCESS(trash_proc, "Trash generation process");
 PROCESS(alert_mode_proc, "Alert mode process");
 PROCESS(full_mode_proc, "Full bin mode process");
 
-AUTOSTART_PROCESSES(&announce_proc, &debug_print_proc, &trash_proc, &alert_mode_proc, full_mode_proc);
+AUTOSTART_PROCESSES(&announce_proc, &trash_proc, &alert_mode_proc, &full_mode_proc);
 
 
 static void handle_announce_msg(const rimeaddr_t *from) {
@@ -55,6 +60,7 @@ static void broadcast_recv(struct broadcast_conn *c, const rimeaddr_t *from) {
             handle_announce_msg(from);
             break;
         case ALERT_MSG:
+            printf("ALERT MSG RECEIVED FROM NODE %d\n", from->u8[0]);
             break;
         case MOVE_MSG:
             break;
@@ -62,7 +68,7 @@ static void broadcast_recv(struct broadcast_conn *c, const rimeaddr_t *from) {
 }
 
 static const struct broadcast_callbacks broadcast_call = {broadcast_recv};
-static struct broadcast_conn broadcast;
+static struct broadcast_conn bc;
 static unsigned char trash = 0;
 static unsigned char x = 0;
 static unsigned char y= 0;
@@ -71,14 +77,14 @@ static unsigned char y= 0;
 PROCESS_THREAD(announce_proc, ev, data) {
     static struct etimer et;
     static announce_msg_t msg;
-    PROCESS_EXITHANDLER(broadcast_close(&broadcast));
+    PROCESS_EXITHANDLER(broadcast_close(&bc));
     PROCESS_BEGIN();
-    broadcast_open(&broadcast, 129, &broadcast_call);
+    broadcast_open(&bc, 129, &broadcast_call);
     while (1) {
         etimer_set(&et, CLOCK_SECOND * (10 + random_rand() % 21));
         PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
         packetbuf_copyfrom(&msg, sizeof(announce_msg_t));
-        broadcast_send(&broadcast);
+        broadcast_send(&bc);
     }
     PROCESS_END();
 }
@@ -94,11 +100,13 @@ PROCESS_THREAD(trash_proc, ev, data) {
     while (1) {
         etimer_set(&et, CLOCK_SECOND * (1 + random_rand() % 30)); // set timer with random value
         PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
-        gen_trash += 1 + random_rand() % 10; // trash generation
+        gen_trash = 1 + random_rand() % MAX_GEN_TRASH; // trash generation
+        printf("GEN_TRASH = %u\n", gen_trash);
+        printf("TRASH = %u\n", trash + gen_trash);
         
-        if (trash + gen_trash < 100) {
-            trash += gen_trash;
-            if (trash >= 85)
+        if (trash + gen_trash < FULL_THRESHOLD) {
+            trash += gen_trash; 
+            if (trash >= ALERT_THRESHOLD)
                 process_post(&alert_mode_proc, ALERT_EVENT, NULL);
         } else {
             process_post(&full_mode_proc, FULL_EVENT, NULL);
@@ -115,14 +123,14 @@ PROCESS_THREAD(alert_mode_proc, ev, data) {
         PROCESS_WAIT_EVENT();
         if (ev == ALERT_EVENT) 
             while(1) {
-                etimer_set(&et, CLOCK_SECOND * 5);
-                PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
                 msg.type = ALERT_MSG;
                 msg.x = x;
                 msg.y = y;
                 msg.id = rimeaddr_node_addr.u8[0]; // getting id from rime stack
                 packetbuf_copyfrom(&msg, sizeof(alert_msg_t));
-                broadcast_send(&broadcast);
+                broadcast_send(&bc);
+                etimer_set(&et, CLOCK_SECOND * 5);
+                PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
             }
     }
     PROCESS_END();
@@ -133,10 +141,10 @@ PROCESS_THREAD(full_mode_proc, ev, data) {
     PROCESS_BEGIN();
     while(1) {
         PROCESS_WAIT_EVENT();
-        if (ev == FULL_EVENT) { 
+        /*if (ev == FULL_EVENT) { 
             while(1){
             }
-        }
+        }*/
     }
     PROCESS_END();
 }
