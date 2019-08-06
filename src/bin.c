@@ -44,7 +44,7 @@ static void broadcast_recv(struct broadcast_conn *c, const rimeaddr_t *from) {
     if (msg_type == MOVE_MSG) {
         puts("MOVE_MSG");
         // TODO
-    } else printf("ERROR: undefined broadcast message received from %u\n", from->u8[0]);
+    } else printf("ERROR: unrecognized broadcast message of type %u received from %u\n", msg_type, from->u8[0]);
 }
 
 
@@ -68,7 +68,7 @@ static void unicast_recv(struct runicast_conn *c, const rimeaddr_t *from, uint8_
             puts("TRASH_MSG");
             // TODO
         } else {
-            printf("ERROR: undefined unicast message received from %u\n", from->u8[0]);
+            printf("ERROR: unrecognized unicast message of type %u received from %u\n", msg_type, from->u8[0]);
         }
     }
 }

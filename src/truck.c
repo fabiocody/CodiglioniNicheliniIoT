@@ -53,7 +53,7 @@ static void recv_runicast(struct runicast_conn *c, const rimeaddr_t *from, uint8
             puts("TRUCK_ACK");
             travelling = FALSE;
         } else {
-            printf("ERROR: undefined unicast message received from %u\n", from->u8[0]);
+            printf("ERROR: unrecognized unicast message of type %u received from %u\n", msg_type, from->u8[0]);
         }
     }
 }
