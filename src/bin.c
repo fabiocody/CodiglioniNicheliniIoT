@@ -6,6 +6,7 @@
 #include "random.h"
 #include "messages.h"
 #include "config.h"
+#include "toolkit.h"
 #include <stdio.h>
 
 

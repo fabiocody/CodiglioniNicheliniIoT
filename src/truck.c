@@ -7,6 +7,7 @@
 #include "random.h"
 #include "messages.h"
 #include "config.h"
+#include "toolkit.h"
 #include <stdio.h>
 #include <math.h>
 
@@ -94,7 +95,9 @@ PROCESS_THREAD(truck_proc, ev, data){
     while (1) {
         PROCESS_WAIT_EVENT();
         if (ev == TRAVEL_EVENT) {
-            travel_distance = 1;    // TODO
+            unsigned int delta_x = abs(x - serving_bin.x);
+            unsigned int delta_y = abs(y - serving_bin.y);
+            travel_distance = floor_sqrt(delta_x * delta_x + delta_y * delta_y);
             etimer_set(&travel_timer, CLOCK_SECOND * travel_distance * BIN_TO_TRUCK_ALPHA);
             PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&travel_timer));
             x = serving_bin.x;
