@@ -22,8 +22,8 @@ static unsigned char y;
 static unsigned char history_table[MAX_NODES];
 
 struct {
-    unsigned short x;
-    unsigned short y;
+    unsigned char x;
+    unsigned char y;
     unsigned char id;
 } serving_bin;
 

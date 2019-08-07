@@ -22,3 +22,10 @@ int floor_sqrt(int x) {
     } 
     return i - 1; 
 }
+
+
+int distance(int a_x, int a_y, int b_x, int b_y) {
+    int delta_x = abs(a_x - b_x);
+    int delta_y = abs(a_y - b_y);
+    return floor_sqrt(delta_x * delta_x + delta_y * delta_y);
+}
