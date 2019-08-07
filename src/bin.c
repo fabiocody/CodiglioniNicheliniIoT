@@ -16,7 +16,8 @@
 #define ALERT_EVENT 255
 #define FULL_EVENT 254
 #define RESPONSE_TRUCK_MSG_EVENT 253
-
+#define RESPONSE_MOVE_MSG_EVENT 252
+#define MAX_NEIGHBORS 8
 #define FALSE 0
 #define TRUE  1
 
@@ -28,23 +29,34 @@ PROCESS(responses_proc, "Process to handle direct responses");
 
 AUTOSTART_PROCESSES(&trash_proc, &alert_mode_proc, &full_mode_proc, &responses_proc);
 
-
-//static struct broadcast_conn bc;  // TODO
+static struct broadcast_conn bc;
 static struct runicast_conn uc;
 static unsigned char trash = 0;
+static unsigned char gen_trash = 0;
 static unsigned char x = 0;
 static unsigned char y = 0;
 static unsigned char alert_mode = FALSE;
 static const rimeaddr_t truck_addr = {{TRUCK_ADDR, 0}};
 static unsigned char history_table[MAX_NODES];
 
+typedef struct neighbor{
+    struct neighbor *next;
+    rimeaddr_t addr;
+    unsigned char x;
+    unsigned char y;
+    unsigned int distance;
+} neighbor_t;
+
+
+MEMB(neighbors_memb, neighbor_t, MAX_NEIGHBORS);
+LIST(neighbor_list);
 
 static void broadcast_recv(struct broadcast_conn *c, const rimeaddr_t *from) {
     void *msg = packetbuf_dataptr();
     unsigned char msg_type = GET_MSG_TYPE(msg);
     if (msg_type == MOVE_MSG) {
         puts("MOVE_MSG");
-        // TODO
+        if (trash < ALERT_THRESHOLD) process_post(&responses_proc, RESPONSE_MOVE_MSG_EVENT, from);
     } else printf("ERROR: unrecognized broadcast message of type %u received from %u\n", msg_type, from->u8[0]);
 }
 
@@ -64,10 +76,19 @@ static void unicast_recv(struct runicast_conn *c, const rimeaddr_t *from, uint8_
             process_post(&responses_proc, RESPONSE_TRUCK_MSG_EVENT, NULL);
         } else if (msg_type == MOVE_REPLY) {
             puts("MOVE_REPLY");
-            // TODO
+            move_reply_t *reply = (move_reply_t*)msg;
+            neighbor_t *tmp = memb_alloc(&neighbors_memb);
+            if (n == NULL) return;
+            tmp->next = NULL;
+            tmp->addr = *from;
+            tmp->x = msg->x;
+            tmp->y = msg->y;
+            tmp->distance = 0;
+            list_add(neighbor_list, tmp);
         } else if (msg_type == TRASH_MSG) {
             puts("TRASH_MSG");
-            // TODO
+            trash_msg_t trash_msg = (trash_msg_t *)msg;
+            trash += trash_msg->trash;
         } else {
             printf("ERROR: unrecognized unicast message of type %u received from %u\n", msg_type, from->u8[0]);
         }
@@ -92,7 +113,6 @@ static const struct runicast_callbacks unicast_call = {unicast_recv, unicast_sen
 // TRASH GENERATION PROCESS
 PROCESS_THREAD(trash_proc, ev, data) {
     static struct etimer et;
-    static unsigned char gen_trash = 0;
     PROCESS_BEGIN();
     x = random_rand() % MAX_COORDINATE;    // x coordinate random initialization
     y = random_rand() % MAX_COORDINATE;    // y coordinate random initiliazation
@@ -108,7 +128,7 @@ PROCESS_THREAD(trash_proc, ev, data) {
                 process_post(&alert_mode_proc, ALERT_EVENT, NULL);
             }
         } else {
-            process_post(&full_mode_proc, FULL_EVENT, NULL);
+            process_post(&full_mode_proc, FULL_EVENT, NULL); // set bin to FULL MODE
         }    
     }
     PROCESS_END();
@@ -150,34 +170,73 @@ PROCESS_THREAD(alert_mode_proc, ev, data) {
 
 // FULL MODE PROCESS
 PROCESS_THREAD(full_mode_proc, ev, data) {
-    //static move_msg_t msg;    // TODO
+    static move_msg_t msg = {MOVE_MSG};
+    static struct etimer et;
+    static struct etimer busy_timer;
+    PROCESS_EXITHANDLER(broadcast_close(&bc));
     PROCESS_BEGIN();
+    broadcast_open(&bc, BROADCAST_CHANNEL, %broadcast_call);
     while(1) {
         PROCESS_WAIT_EVENT();
-        puts("FULL PROCESS");
-        /*if (ev == FULL_EVENT) {   // TODO
-            while(1){
+        if (ev == FULL_EVENT){
+            puts("FULL PROCESS");
+            packetbuf_copyfrom(&msg, sizeof(move_msg_t));
+            
+            while (list_head(neighbor_list)){ // neighbor_list cleaning
+                list_pop(neighbor_list);
             }
-        }*/
+            
+            broadcast_send(&bc);
+            etimer_set(&et, CLOCK_SECOND * 2);
+            PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
+            
+            neighbor_t *ptr; // compute distance for each node which responded
+            neighbor_t *min;
+            for(ptr = list_head(ptr), min = ptr; ptr; ptr = list_item_next(ptr)){
+                ptr->distance = distance(x, y, ptr->x, ptr->y);
+                if (ptr->distance < min->distance) min = ptr;  
+            }
+
+            if (min = NULL) puts("ERROR: no replies");
+            else {
+                tras_msg_t t_msg = {TRASH_MSG, gen_trash};
+                packetbuf_copyfrom(&t_msg, sizeof(t_msg));
+                while (runicast_is_transmitting(&uc)) {
+                    etimer_set(&busy_timer, CLOCK_SECOND / BUSY_TIMER_DIVIDER);
+                    PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&busy_timer));
+                }
+                runicast_send(&uc, &(min->addr), MAX_RETRANSMISSIONS);
+
+            }
+        }
     }
     PROCESS_END();
 }
 
 
-// RESPONSES PROCESS
+// RESPONSES PROCESS -- Process to handle responses to other nodes' requests
 PROCESS_THREAD(responses_proc, ev, data) {
     static struct etimer busy_timer;
     static truck_ack_t truck_ack = {TRUCK_ACK};
+    static move_reply_t mv_reply = {MOVE_REPLY, x, y};
     PROCESS_BEGIN();
     while (1) {
         PROCESS_WAIT_EVENT();
-        if (ev == RESPONSE_TRUCK_MSG_EVENT) {
+        if (ev == RESPONSE_TRUCK_MSG_EVENT) { // handle responses to truck msg
             while (runicast_is_transmitting(&uc)) {
                 etimer_set(&busy_timer, CLOCK_SECOND / BUSY_TIMER_DIVIDER);
                 PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&busy_timer));
             }
             packetbuf_copyfrom(&truck_ack, sizeof(truck_ack_t));
             runicast_send(&uc, &truck_addr, MAX_RETRANSMISSIONS);
+
+        } else if (ev == RESPONSE_MOVE_MSG_EVENT) { // handle responses to move msg
+            while (runicast_is_transmitting(&uc)) {
+                etimer_set(&busy_timer, CLOCK_SECOND / BUSY_TIMER_DIVIDER);
+                PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&busy_timer));
+            }
+            packetbuf_dataptr(mv_reply, sizeof(move_reply_t));
+            runicast_send(&uc, (rimeaddr_t *)data, MAX_RETRANSMISSIONS);
         }
     }
     PROCESS_END();
