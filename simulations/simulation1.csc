@@ -155,8 +155,8 @@
       <breakpoints />
       <interface_config>
         se.sics.cooja.interfaces.Position
-        <x>10.972691919404975</x>
-        <y>66.01169595729706</y>
+        <x>10.266928055889734</x>
+        <y>65.91451289786082</y>
         <z>0.0</z>
       </interface_config>
       <interface_config>
@@ -183,7 +183,7 @@
   <plugin>
     se.sics.cooja.plugins.SimControl
     <width>280</width>
-    <z>2</z>
+    <z>0</z>
     <height>160</height>
     <location_x>400</location_x>
     <location_y>0</location_y>
@@ -199,7 +199,7 @@
       <viewport>3.578041687590586 0.0 0.0 3.578041687590586 32.26450341253316 -32.84487496577338</viewport>
     </plugin_config>
     <width>400</width>
-    <z>0</z>
+    <z>3</z>
     <height>400</height>
     <location_x>1</location_x>
     <location_y>1</location_y>
@@ -212,7 +212,7 @@
       <coloring />
     </plugin_config>
     <width>1079</width>
-    <z>3</z>
+    <z>1</z>
     <height>572</height>
     <location_x>401</location_x>
     <location_y>161</location_y>
@@ -246,10 +246,90 @@
       <decorations>true</decorations>
     </plugin_config>
     <width>800</width>
-    <z>1</z>
+    <z>2</z>
     <height>160</height>
     <location_x>680</location_x>
     <location_y>1</location_y>
+  </plugin>
+  <plugin>
+    SerialSocketServer
+    <mote_arg>0</mote_arg>
+    <width>422</width>
+    <z>-1</z>
+    <height>69</height>
+    <location_x>150</location_x>
+    <location_y>150</location_y>
+    <minimized>true</minimized>
+  </plugin>
+  <plugin>
+    SerialSocketServer
+    <mote_arg>1</mote_arg>
+    <width>422</width>
+    <z>-1</z>
+    <height>69</height>
+    <location_x>180</location_x>
+    <location_y>180</location_y>
+    <minimized>true</minimized>
+  </plugin>
+  <plugin>
+    SerialSocketServer
+    <mote_arg>2</mote_arg>
+    <width>422</width>
+    <z>-1</z>
+    <height>69</height>
+    <location_x>210</location_x>
+    <location_y>210</location_y>
+    <minimized>true</minimized>
+  </plugin>
+  <plugin>
+    SerialSocketServer
+    <mote_arg>3</mote_arg>
+    <width>422</width>
+    <z>-1</z>
+    <height>69</height>
+    <location_x>240</location_x>
+    <location_y>240</location_y>
+    <minimized>true</minimized>
+  </plugin>
+  <plugin>
+    SerialSocketServer
+    <mote_arg>4</mote_arg>
+    <width>422</width>
+    <z>-1</z>
+    <height>69</height>
+    <location_x>270</location_x>
+    <location_y>270</location_y>
+    <minimized>true</minimized>
+  </plugin>
+  <plugin>
+    SerialSocketServer
+    <mote_arg>5</mote_arg>
+    <width>422</width>
+    <z>-1</z>
+    <height>69</height>
+    <location_x>300</location_x>
+    <location_y>300</location_y>
+    <minimized>true</minimized>
+  </plugin>
+  <plugin>
+    SerialSocketServer
+    <mote_arg>6</mote_arg>
+    <width>422</width>
+    <z>-1</z>
+    <height>69</height>
+    <location_x>330</location_x>
+    <location_y>330</location_y>
+    <minimized>true</minimized>
+  </plugin>
+  <plugin>
+    SerialSocketServer
+    <mote_arg>7</mote_arg>
+    <width>422</width>
+    <z>-1</z>
+    <height>69</height>
+    <location_x>360</location_x>
+    <location_y>360</location_y>
+    <minimized>true</minimized>
   </plugin>
 </simconf>
 

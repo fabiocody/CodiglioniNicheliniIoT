@@ -55,7 +55,7 @@ static void broadcast_recv(struct broadcast_conn *c, const rimeaddr_t *from) {
     void *msg = packetbuf_dataptr();
     unsigned char msg_type = GET_MSG_TYPE(msg);
     if (msg_type == MOVE_MSG) {
-        puts("MOVE_MSG");
+        puts("incoming message: MOVE_MSG");
         if (trash < ALERT_THRESHOLD) process_post(&responses_proc, RESPONSE_MOVE_MSG_EVENT, (void *)from);
     } else printf("ERROR: unrecognized broadcast message of type %u received from %u\n", msg_type, from->u8[0]);
 }
@@ -65,17 +65,17 @@ static void unicast_recv(struct runicast_conn *c, const rimeaddr_t *from, uint8_
     unsigned char from_addr = from->u8[0];
     if (history_table[from_addr] != seqno) {
         history_table[from_addr] = seqno;
-        printf("runicast message received from %u, seqno %u\n", from->u8[0], seqno);
+        //printf("runicast message received from %u, seqno %u\n", from->u8[0], seqno);
         void *msg = packetbuf_dataptr();
         unsigned char msg_type = GET_MSG_TYPE(msg);
         if (msg_type == TRUCK_MSG) {
-            puts("TRUCK_MSG");
+            puts("incoming message: TRUCK_MSG");
             alert_mode = FALSE;
-            puts("emptying trash");
+            puts("trash = 0");
             trash = 0;
             process_post(&responses_proc, RESPONSE_TRUCK_MSG_EVENT, NULL);
         } else if (msg_type == MOVE_REPLY) {
-            puts("MOVE_REPLY");
+            puts("incoming message: MOVE_REPLY");
             move_reply_t *reply = (move_reply_t*)msg;
             neighbor_t *tmp = memb_alloc(&neighbors_memb);
             if (tmp == NULL) return;
@@ -86,11 +86,11 @@ static void unicast_recv(struct runicast_conn *c, const rimeaddr_t *from, uint8_
             tmp->distance = 0;
             list_add(neighbor_list, tmp);
         } else if (msg_type == TRASH_MSG) {
-            puts("TRASH_MSG");
+            puts("incoming message: TRASH_MSG");
             trash_msg_t *trash_msg = (trash_msg_t *)msg;
-            printf("old trash = %u\n", trash);
+            //printf("old trash = %u\n", trash);
             trash += trash_msg->trash;
-            printf("new trash = %u\n", trash);
+            printf("trash = %u\n", trash);
         } else {
             printf("ERROR: unrecognized unicast message of type %u received from %u\n", msg_type, from->u8[0]);
         }
@@ -99,7 +99,7 @@ static void unicast_recv(struct runicast_conn *c, const rimeaddr_t *from, uint8_
 
 
 static void unicast_sent(struct runicast_conn *c, const rimeaddr_t *to, uint8_t retransmissions) {
-    printf("runicast message sent to %u, retransmissions %u\n", to->u8[0], retransmissions);
+    //printf("runicast message sent to %u, retransmissions %u\n", to->u8[0], retransmissions);
 }
 
 
@@ -118,12 +118,13 @@ PROCESS_THREAD(trash_proc, ev, data) {
     PROCESS_BEGIN();
     x = random_rand() % MAX_COORDINATE;    // x coordinate random initialization
     y = random_rand() % MAX_COORDINATE;    // y coordinate random initiliazation
+    puts("trash = 0");
     while (1) {
         etimer_set(&et, CLOCK_SECOND * (1 + random_rand() % 30));   // set timer with random value
         PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
         if (generation_mode) {
             gen_trash = 1 + random_rand() % MAX_GEN_TRASH;  // trash generation
-            printf("TRASH = %u (GEN_TRASH = %u)\n", trash + gen_trash, gen_trash);
+            printf("trash = %u (gen_trash = %u)\n", trash + gen_trash, gen_trash);
             if (trash + gen_trash < FULL_THRESHOLD) {
                 trash += gen_trash; 
                 if (trash >= ALERT_THRESHOLD) {
@@ -184,7 +185,6 @@ PROCESS_THREAD(full_mode_proc, ev, data) {
     while(1) {
         PROCESS_WAIT_EVENT();
         if (ev == FULL_EVENT){
-            puts("FULL PROCESS");
             generation_mode = FALSE;
             packetbuf_copyfrom(&msg, sizeof(move_msg_t));
             
@@ -205,15 +205,15 @@ PROCESS_THREAD(full_mode_proc, ev, data) {
             if (min == NULL) { 
                 puts("ERROR: no replies");
             } else {
-                printf("SENDING TRASH TO %u\n", min->addr.u8[0]);
+                printf("sending trash to %u\n", min->addr.u8[0]);
                 trash_msg.trash = gen_trash;
                 packetbuf_copyfrom(&trash_msg, sizeof(trash_msg_t));
                 while (runicast_is_transmitting(&uc)) {
-                    puts("WAITING FOR CHANNEL CLEAR");
+                    //puts("WAITING FOR CHANNEL CLEAR");
                     etimer_set(&busy_timer, CLOCK_SECOND / BUSY_TIMER_DIVIDER);
                     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&busy_timer));
                 }
-                puts("ACTUALLY SEND TRASH_MSG");
+                //puts("actually sending TRASH_MSG");
                 runicast_send(&uc, &(min->addr), MAX_RETRANSMISSIONS);
             }
             generation_mode = TRUE;
