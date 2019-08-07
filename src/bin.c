@@ -196,7 +196,7 @@ PROCESS_THREAD(full_mode_proc, ev, data) {
             PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
             
             neighbor_t *ptr; // compute distance for each node which responded
-            neighbor_t *min = NULL;
+            static neighbor_t *min = NULL;
             for (ptr = list_head(neighbor_list), min = ptr; ptr; ptr = list_item_next(ptr)){
                 ptr->distance = distance(x, y, ptr->x, ptr->y);
                 if (ptr->distance < min->distance) min = ptr;  
