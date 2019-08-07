@@ -53,7 +53,7 @@ static void unicast_recv(struct runicast_conn *c, const rimeaddr_t *from, uint8_
     unsigned char from_addr = from->u8[0];
     if (history_table[from_addr] != seqno) {
         history_table[from_addr] = seqno;
-        //printf("runicast message received from %u, seqno %u\n", from->u8[0], seqno);
+        printf("runicast message received from %u, seqno %u\n", from->u8[0], seqno);
         void *msg = packetbuf_dataptr();
         unsigned char msg_type = GET_MSG_TYPE(msg);
         if (msg_type == TRUCK_MSG) {
@@ -76,7 +76,7 @@ static void unicast_recv(struct runicast_conn *c, const rimeaddr_t *from, uint8_
 
 
 static void unicast_sent(struct runicast_conn *c, const rimeaddr_t *to, uint8_t retransmissions) {
-    //printf("runicast message sent to %u, retransmissions %u\n", to->u8[0], retransmissions);
+    printf("runicast message sent to %u, retransmissions %u\n", to->u8[0], retransmissions);
 }
 
 
@@ -94,8 +94,8 @@ PROCESS_THREAD(trash_proc, ev, data) {
     static struct etimer et;
     static unsigned char gen_trash = 0;
     PROCESS_BEGIN();
-    x = random_rand() % 100;    // x coordinate random initialization
-    y = random_rand() % 100;    // y coordinate random initiliazation
+    x = random_rand() % MAX_COORDINATE;    // x coordinate random initialization
+    y = random_rand() % MAX_COORDINATE;    // y coordinate random initiliazation
     while (1) {
         etimer_set(&et, CLOCK_SECOND * (1 + random_rand() % 30));   // set timer with random value
         PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
@@ -167,11 +167,11 @@ PROCESS_THREAD(full_mode_proc, ev, data) {
 // RESPONSES PROCESS
 PROCESS_THREAD(responses_proc, ev, data) {
     static struct etimer busy_timer;
+    static truck_ack_t truck_ack = {TRUCK_ACK};
     PROCESS_BEGIN();
     while (1) {
         PROCESS_WAIT_EVENT();
         if (ev == RESPONSE_TRUCK_MSG_EVENT) {
-            static truck_ack_t truck_ack = {TRUCK_ACK};
             while (runicast_is_transmitting(&uc)) {
                 etimer_set(&busy_timer, CLOCK_SECOND / BUSY_TIMER_DIVIDER);
                 PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&busy_timer));

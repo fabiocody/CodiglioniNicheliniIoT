@@ -36,7 +36,7 @@ static void recv_runicast(struct runicast_conn *c, const rimeaddr_t *from, uint8
     unsigned char from_addr = from->u8[0];
     if (history_table[from_addr] != seqno) {
         history_table[from_addr] = seqno;
-        //printf("runicast message received from %d.%d, seqno %d\n", from->u8[0], from->u8[1], seqno);
+        printf("runicast message received from %d.%d, seqno %d\n", from->u8[0], from->u8[1], seqno);
         void *msg = packetbuf_dataptr();
         unsigned char msg_type = GET_MSG_TYPE(msg);
         if (msg_type == ALERT_MSG) {
@@ -61,7 +61,7 @@ static void recv_runicast(struct runicast_conn *c, const rimeaddr_t *from, uint8
 
 
 static void sent_runicast(struct runicast_conn *c, const rimeaddr_t *to, uint8_t retransmissions) {
-    //printf("runicast message sent to %u, retransmissions %d\n", to->u8[0], retransmissions);
+    printf("runicast message sent to %u, retransmissions %d\n", to->u8[0], retransmissions);
 }
 
 
@@ -80,7 +80,7 @@ static rimeaddr_t truck_addr = {{TRUCK_ADDR, 0}};
 PROCESS_THREAD(truck_proc, ev, data){
     static struct etimer travel_timer;
     static struct etimer busy_timer;
-    static float travel_distance;
+    static unsigned int travel_distance;
     static truck_msg_t msg = {TRUCK_MSG};
     PROCESS_EXITHANDLER(runicast_close(&uc));
     PROCESS_BEGIN();
@@ -90,15 +90,17 @@ PROCESS_THREAD(truck_proc, ev, data){
     for (i = 0; i < MAX_NODES; i++)
         history_table[i] = -1;
     runicast_open(&uc, UNICAST_CHANNEL, &runicast_callbacks);
-    x = random_rand() % 100;
-    y = random_rand() % 100;
+    x = random_rand() % MAX_COORDINATE;
+    y = random_rand() % MAX_COORDINATE;
     while (1) {
         PROCESS_WAIT_EVENT();
         if (ev == TRAVEL_EVENT) {
             unsigned int delta_x = abs(x - serving_bin.x);
             unsigned int delta_y = abs(y - serving_bin.y);
             travel_distance = floor_sqrt(delta_x * delta_x + delta_y * delta_y);
-            etimer_set(&travel_timer, CLOCK_SECOND * travel_distance * BIN_TO_TRUCK_ALPHA);
+            travel_distance *= BIN_TO_TRUCK_ALPHA;
+            printf("TRAVEL_DISTANCE = %u\n", travel_distance);
+            etimer_set(&travel_timer, CLOCK_SECOND * travel_distance);
             PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&travel_timer));
             x = serving_bin.x;
             y = serving_bin.y;
