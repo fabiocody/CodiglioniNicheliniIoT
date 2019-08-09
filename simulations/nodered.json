@@ -182,7 +182,7 @@
         "z": "b2cc616b.ac21a",
         "name": "Level",
         "group": "9fcd80e8.06e348",
-        "order": 0,
+        "order": 5,
         "width": 0,
         "height": 0,
         "gtype": "gage",
@@ -207,7 +207,7 @@
         "type": "ui_led",
         "z": "b2cc616b.ac21a",
         "group": "9fcd80e8.06e348",
-        "order": 2,
+        "order": 1,
         "width": 0,
         "height": 0,
         "label": "Status",
@@ -241,7 +241,7 @@
         "z": "b2cc616b.ac21a",
         "name": "Level",
         "group": "243413e9.0bd9b4",
-        "order": 0,
+        "order": 5,
         "width": 0,
         "height": 0,
         "gtype": "gage",
@@ -266,7 +266,7 @@
         "type": "ui_led",
         "z": "b2cc616b.ac21a",
         "group": "243413e9.0bd9b4",
-        "order": 2,
+        "order": 1,
         "width": 0,
         "height": 0,
         "label": "Status",
@@ -300,7 +300,7 @@
         "z": "b2cc616b.ac21a",
         "name": "Level",
         "group": "c56897db.6bb248",
-        "order": 0,
+        "order": 5,
         "width": 0,
         "height": 0,
         "gtype": "gage",
@@ -325,7 +325,7 @@
         "type": "ui_led",
         "z": "b2cc616b.ac21a",
         "group": "c56897db.6bb248",
-        "order": 2,
+        "order": 1,
         "width": 0,
         "height": 0,
         "label": "Status",
@@ -359,7 +359,7 @@
         "z": "b2cc616b.ac21a",
         "name": "Level",
         "group": "a4d6aeeb.c8baa8",
-        "order": 0,
+        "order": 5,
         "width": 0,
         "height": 0,
         "gtype": "gage",
@@ -384,7 +384,7 @@
         "type": "ui_led",
         "z": "b2cc616b.ac21a",
         "group": "a4d6aeeb.c8baa8",
-        "order": 2,
+        "order": 1,
         "width": 0,
         "height": 0,
         "label": "Status",
@@ -418,7 +418,7 @@
         "z": "b2cc616b.ac21a",
         "name": "Level",
         "group": "74a65b8.0418ca4",
-        "order": 0,
+        "order": 5,
         "width": 0,
         "height": 0,
         "gtype": "gage",
@@ -443,7 +443,7 @@
         "type": "ui_led",
         "z": "b2cc616b.ac21a",
         "group": "74a65b8.0418ca4",
-        "order": 2,
+        "order": 1,
         "width": 0,
         "height": 0,
         "label": "Status",
@@ -477,7 +477,7 @@
         "z": "b2cc616b.ac21a",
         "name": "Level",
         "group": "976963f9.8ab63",
-        "order": 0,
+        "order": 5,
         "width": 0,
         "height": 0,
         "gtype": "gage",
@@ -502,7 +502,7 @@
         "type": "ui_led",
         "z": "b2cc616b.ac21a",
         "group": "976963f9.8ab63",
-        "order": 2,
+        "order": 1,
         "width": 0,
         "height": 0,
         "label": "Status",
@@ -536,7 +536,7 @@
         "z": "b2cc616b.ac21a",
         "name": "Level",
         "group": "ffc6edb8.81b898",
-        "order": 0,
+        "order": 5,
         "width": 0,
         "height": 0,
         "gtype": "gage",
@@ -561,7 +561,7 @@
         "type": "ui_led",
         "z": "b2cc616b.ac21a",
         "group": "ffc6edb8.81b898",
-        "order": 2,
+        "order": 1,
         "width": 0,
         "height": 0,
         "label": "Status",
@@ -609,7 +609,7 @@
         "type": "ui_text",
         "z": "b2cc616b.ac21a",
         "group": "7f8b249c.9be084",
-        "order": 0,
+        "order": 2,
         "width": 0,
         "height": 0,
         "name": "Destination",
@@ -625,7 +625,7 @@
         "type": "ui_text",
         "z": "b2cc616b.ac21a",
         "group": "9fcd80e8.06e348",
-        "order": 2,
+        "order": 3,
         "width": 0,
         "height": 0,
         "name": "",
@@ -641,7 +641,7 @@
         "type": "ui_text",
         "z": "b2cc616b.ac21a",
         "group": "243413e9.0bd9b4",
-        "order": 2,
+        "order": 3,
         "width": 0,
         "height": 0,
         "name": "",
@@ -657,7 +657,7 @@
         "type": "ui_text",
         "z": "b2cc616b.ac21a",
         "group": "c56897db.6bb248",
-        "order": 2,
+        "order": 3,
         "width": 0,
         "height": 0,
         "name": "",
@@ -673,7 +673,7 @@
         "type": "ui_text",
         "z": "b2cc616b.ac21a",
         "group": "a4d6aeeb.c8baa8",
-        "order": 2,
+        "order": 3,
         "width": 0,
         "height": 0,
         "name": "",
@@ -689,7 +689,7 @@
         "type": "ui_text",
         "z": "b2cc616b.ac21a",
         "group": "74a65b8.0418ca4",
-        "order": 2,
+        "order": 3,
         "width": 0,
         "height": 0,
         "name": "",
@@ -705,7 +705,7 @@
         "type": "ui_text",
         "z": "b2cc616b.ac21a",
         "group": "976963f9.8ab63",
-        "order": 2,
+        "order": 3,
         "width": 0,
         "height": 0,
         "name": "",
@@ -721,7 +721,7 @@
         "type": "ui_text",
         "z": "b2cc616b.ac21a",
         "group": "ffc6edb8.81b898",
-        "order": 2,
+        "order": 3,
         "width": 0,
         "height": 0,
         "name": "",
@@ -752,7 +752,7 @@
         "type": "ui_text",
         "z": "b2cc616b.ac21a",
         "group": "7f8b249c.9be084",
-        "order": 2,
+        "order": 1,
         "width": 0,
         "height": 0,
         "name": "",
@@ -783,7 +783,7 @@
         "type": "ui_text",
         "z": "b2cc616b.ac21a",
         "group": "7f8b249c.9be084",
-        "order": 2,
+        "order": 3,
         "width": 0,
         "height": 0,
         "name": "Travel time",
@@ -1010,7 +1010,8 @@
         "y": 280,
         "wires": [
             [
-                "4fa164ee.26a4c4"
+                "4fa164ee.26a4c4",
+                "870a49d2.382a2"
             ]
         ]
     },
@@ -1355,7 +1356,7 @@
         "type": "ui_text",
         "z": "b2cc616b.ac21a",
         "group": "9fcd80e8.06e348",
-        "order": 3,
+        "order": 4,
         "width": 0,
         "height": 0,
         "name": "Last generated trash",
@@ -1371,7 +1372,7 @@
         "type": "ui_text",
         "z": "b2cc616b.ac21a",
         "group": "243413e9.0bd9b4",
-        "order": 3,
+        "order": 4,
         "width": 0,
         "height": 0,
         "name": "Last generated trash",
@@ -1387,7 +1388,7 @@
         "type": "ui_text",
         "z": "b2cc616b.ac21a",
         "group": "c56897db.6bb248",
-        "order": 3,
+        "order": 4,
         "width": 0,
         "height": 0,
         "name": "Last generated trash",
@@ -1419,7 +1420,7 @@
         "type": "ui_text",
         "z": "b2cc616b.ac21a",
         "group": "74a65b8.0418ca4",
-        "order": 3,
+        "order": 4,
         "width": 0,
         "height": 0,
         "name": "Last generated trash",
@@ -1435,7 +1436,7 @@
         "type": "ui_text",
         "z": "b2cc616b.ac21a",
         "group": "976963f9.8ab63",
-        "order": 3,
+        "order": 4,
         "width": 0,
         "height": 0,
         "name": "Last generated trash",
@@ -1451,7 +1452,7 @@
         "type": "ui_text",
         "z": "b2cc616b.ac21a",
         "group": "ffc6edb8.81b898",
-        "order": 3,
+        "order": 4,
         "width": 0,
         "height": 0,
         "name": "Last generated trash",
@@ -1459,6 +1460,444 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "x": 1520,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "870a49d2.382a2",
+        "type": "python3-function",
+        "z": "b2cc616b.ac21a",
+        "name": "TRASH_MSG_received",
+        "func": "if 'TRASH_MSG' in msg['payload']:\n    return msg",
+        "outputs": 1,
+        "x": 710,
+        "y": 600,
+        "wires": [
+            [
+                "52a9b755.8b7fd8"
+            ]
+        ]
+    },
+    {
+        "id": "cbed15ed.91372",
+        "type": "trigger",
+        "z": "b2cc616b.ac21a",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 1720,
+        "y": 80,
+        "wires": [
+            [
+                "d3d3ef32.546f58"
+            ]
+        ]
+    },
+    {
+        "id": "d3d3ef32.546f58",
+        "type": "ui_led",
+        "z": "b2cc616b.ac21a",
+        "group": "9fcd80e8.06e348",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Incoming trash",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "gray",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "green",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "name": "",
+        "x": 1870,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "52a9b755.8b7fd8",
+        "type": "switch",
+        "z": "b2cc616b.ac21a",
+        "name": "",
+        "property": "id",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "4",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "5",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "7",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 7,
+        "x": 910,
+        "y": 600,
+        "wires": [
+            [
+                "cbed15ed.91372"
+            ],
+            [
+                "46c05163.93afd8"
+            ],
+            [
+                "4687b902.727d88"
+            ],
+            [
+                "2f5a6193.606656"
+            ],
+            [
+                "6011cfb1.ab64a8"
+            ],
+            [
+                "b1d6beed.6788a"
+            ],
+            [
+                "ebe877f4.4bd29"
+            ]
+        ]
+    },
+    {
+        "id": "ebe877f4.4bd29",
+        "type": "trigger",
+        "z": "b2cc616b.ac21a",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 1720,
+        "y": 440,
+        "wires": [
+            [
+                "f31fc385.5df7e"
+            ]
+        ]
+    },
+    {
+        "id": "b1d6beed.6788a",
+        "type": "trigger",
+        "z": "b2cc616b.ac21a",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 1720,
+        "y": 380,
+        "wires": [
+            [
+                "192d75aa.a926d2"
+            ]
+        ]
+    },
+    {
+        "id": "6011cfb1.ab64a8",
+        "type": "trigger",
+        "z": "b2cc616b.ac21a",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 1720,
+        "y": 320,
+        "wires": [
+            [
+                "ad42de2b.9b051"
+            ]
+        ]
+    },
+    {
+        "id": "2f5a6193.606656",
+        "type": "trigger",
+        "z": "b2cc616b.ac21a",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 1720,
+        "y": 260,
+        "wires": [
+            [
+                "2721089b.6b11c8"
+            ]
+        ]
+    },
+    {
+        "id": "4687b902.727d88",
+        "type": "trigger",
+        "z": "b2cc616b.ac21a",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 1720,
+        "y": 200,
+        "wires": [
+            [
+                "10e91c6.acaf364"
+            ]
+        ]
+    },
+    {
+        "id": "46c05163.93afd8",
+        "type": "trigger",
+        "z": "b2cc616b.ac21a",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 1720,
+        "y": 140,
+        "wires": [
+            [
+                "3ec635e7.ee946a"
+            ]
+        ]
+    },
+    {
+        "id": "3ec635e7.ee946a",
+        "type": "ui_led",
+        "z": "b2cc616b.ac21a",
+        "group": "243413e9.0bd9b4",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Incoming trash",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "gray",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "green",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "name": "",
+        "x": 1870,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "10e91c6.acaf364",
+        "type": "ui_led",
+        "z": "b2cc616b.ac21a",
+        "group": "c56897db.6bb248",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Incoming trash",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "gray",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "green",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "name": "",
+        "x": 1870,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "2721089b.6b11c8",
+        "type": "ui_led",
+        "z": "b2cc616b.ac21a",
+        "group": "a4d6aeeb.c8baa8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Incoming trash",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "gray",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "green",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "name": "",
+        "x": 1870,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "ad42de2b.9b051",
+        "type": "ui_led",
+        "z": "b2cc616b.ac21a",
+        "group": "74a65b8.0418ca4",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Incoming trash",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "gray",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "green",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "name": "",
+        "x": 1870,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "192d75aa.a926d2",
+        "type": "ui_led",
+        "z": "b2cc616b.ac21a",
+        "group": "976963f9.8ab63",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Incoming trash",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "gray",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "green",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "name": "",
+        "x": 1870,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "f31fc385.5df7e",
+        "type": "ui_led",
+        "z": "b2cc616b.ac21a",
+        "group": "ffc6edb8.81b898",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Incoming trash",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "gray",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "green",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "name": "",
+        "x": 1870,
         "y": 440,
         "wires": []
     },
