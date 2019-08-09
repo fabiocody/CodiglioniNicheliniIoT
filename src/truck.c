@@ -55,7 +55,7 @@ static void recv_runicast(struct runicast_conn *c, const rimeaddr_t *from, uint8
             }
         } else if (msg_type == TRUCK_ACK) {
             puts("incoming message: TRUCK_ACK");
-            travelling = FALSE;
+            //travelling = FALSE;
         } else {
             printf("ERROR: unrecognized unicast message of type %u received from %u\n", msg_type, from->u8[0]);
         }
@@ -132,6 +132,7 @@ PROCESS_THREAD(truck_proc, ev, data){
                 PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&busy_timer));
             }
             runicast_send(&uc, &recipient, MAX_RETRANSMISSIONS);
+            travelling = FALSE;
         }
     }
     PROCESS_END();

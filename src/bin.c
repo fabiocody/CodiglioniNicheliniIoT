@@ -164,6 +164,8 @@ PROCESS_THREAD(alert_mode_proc, ev, data) {
                     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&busy_timer));
                 }
                 runicast_send(&uc, &truck_addr, MAX_RETRANSMISSIONS);
+
+                // Set timer for periodic retransmission
                 etimer_set(&et, CLOCK_SECOND * 15);
                 PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
             }
