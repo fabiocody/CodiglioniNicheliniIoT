@@ -16,7 +16,7 @@
 
 // UNICAST: BIN->TRUCK
 #define    ALERT_MSG  4
-#define    TRUCK_ACK  5
+//#define    TRUCK_ACK  5
 
 // UNICAST: TRUCK->BIN
 #define    TRUCK_MSG  6
@@ -56,9 +56,9 @@ typedef struct {
 } trash_msg_t;
 
 
-typedef struct {
+/*typedef struct {
     unsigned char type;
-} truck_ack_t;
+} truck_ack_t;*/
 
 
 #endif // MESSAGES_H

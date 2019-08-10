@@ -16,6 +16,7 @@
 #define FALSE 0
 #define TRUE  1
 
+
 static unsigned char travelling = FALSE;
 static unsigned char x;
 static unsigned char y;
@@ -30,6 +31,7 @@ struct {
 
 PROCESS(truck_proc, "Truck process");
 AUTOSTART_PROCESSES(&truck_proc);
+
 
 /*
  * Function: recvunicast
@@ -53,25 +55,24 @@ static void recv_runicast(struct runicast_conn *c, const rimeaddr_t *from, uint8
                 serving_bin.id = alert_msg->id;
                 process_post(&truck_proc, TRAVEL_EVENT, NULL);
             }
-        } else if (msg_type == TRUCK_ACK) {
-            puts("incoming message: TRUCK_ACK");
-            //travelling = FALSE;
         } else {
             printf("ERROR: unrecognized unicast message of type %u received from %u\n", msg_type, from->u8[0]);
         }
     }
 }
 
+
 /*
- * Sended unicast message callback.
+ * Sent unicast message callback.
  * Just print to console 
  */
 static void sent_runicast(struct runicast_conn *c, const rimeaddr_t *to, uint8_t retransmissions) {
     //printf("runicast message sent to %u, retransmissions %d\n", to->u8[0], retransmissions);
 }
 
+
 /*
- * TImeout unicast message callback.
+ * Timeout unicast message callback.
  * Just print to console
  */
 static void timedout_runicast(struct runicast_conn *c, const rimeaddr_t *to, uint8_t retransmissions) {
@@ -84,6 +85,7 @@ static const struct runicast_callbacks runicast_callbacks = {recv_runicast,
                                                              timedout_runicast};
 static struct runicast_conn uc;
 static rimeaddr_t truck_addr = {{TRUCK_ADDR, 0}};
+
 
 /* PROCESS: truck_proc
  * This is the main process of the truck's firmware.
@@ -137,3 +139,4 @@ PROCESS_THREAD(truck_proc, ev, data){
     }
     PROCESS_END();
 }
+

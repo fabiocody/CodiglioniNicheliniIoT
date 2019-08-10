@@ -16,7 +16,7 @@
 #define FULL_EVENT 254
 #define RESPONSE_TRUCK_MSG_EVENT 253
 #define RESPONSE_MOVE_MSG_EVENT 252
-#define MAX_NEIGHBORS 8
+
 #define FALSE 0
 #define TRUE  1
 
@@ -88,7 +88,6 @@ static void unicast_recv(struct runicast_conn *c, const rimeaddr_t *from, uint8_
         } else if (msg_type == TRASH_MSG) {
             puts("incoming message: TRASH_MSG");
             trash_msg_t *trash_msg = (trash_msg_t *)msg;
-            //printf("old trash = %u\n", trash);
             trash += trash_msg->trash;
             printf("trash = %u\n", trash);
         } else {
@@ -124,16 +123,16 @@ PROCESS_THREAD(trash_proc, ev, data) {
         PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
         if (generation_mode) {
             gen_trash = 1 + random_rand() % MAX_GEN_TRASH;  // trash generation
-            printf("trash = %u (gen_trash = %u)\n", trash + gen_trash, gen_trash);
             if (trash + gen_trash < FULL_THRESHOLD) {
                 trash += gen_trash; 
                 if (trash >= ALERT_THRESHOLD) {
                     alert_mode = TRUE;
-                    process_post(&alert_mode_proc, ALERT_EVENT, NULL);
+                    process_post(&alert_mode_proc, ALERT_EVENT, NULL);      // wake up alert mode process
                 }
             } else {
-                process_post(&full_mode_proc, FULL_EVENT, NULL); // set bin to FULL MODE
+                process_post(&full_mode_proc, FULL_EVENT, NULL);    // wale up full mode process
             }
+            printf("trash = %u (gen_trash = %u)\n", trash, gen_trash);
         }
     }
     PROCESS_END();
@@ -166,7 +165,7 @@ PROCESS_THREAD(alert_mode_proc, ev, data) {
                 runicast_send(&uc, &truck_addr, MAX_RETRANSMISSIONS);
 
                 // Set timer for periodic retransmission
-                etimer_set(&et, CLOCK_SECOND * 15);
+                etimer_set(&et, CLOCK_SECOND * ALERT_PERIOD);
                 PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
             }
         }
@@ -211,11 +210,9 @@ PROCESS_THREAD(full_mode_proc, ev, data) {
                 trash_msg.trash = gen_trash;
                 packetbuf_copyfrom(&trash_msg, sizeof(trash_msg_t));
                 while (runicast_is_transmitting(&uc)) {
-                    //puts("WAITING FOR CHANNEL CLEAR");
                     etimer_set(&busy_timer, CLOCK_SECOND / BUSY_TIMER_DIVIDER);
                     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&busy_timer));
                 }
-                //puts("actually sending TRASH_MSG");
                 runicast_send(&uc, &(min->addr), MAX_RETRANSMISSIONS);
             }
             generation_mode = TRUE;
@@ -228,24 +225,14 @@ PROCESS_THREAD(full_mode_proc, ev, data) {
 // RESPONSES PROCESS -- Process to handle responses to other nodes' requests
 PROCESS_THREAD(responses_proc, ev, data) {
     static struct etimer busy_timer;
-    static truck_ack_t truck_ack = {TRUCK_ACK};
     static move_reply_t mv_reply = {MOVE_REPLY};
     PROCESS_BEGIN();
     mv_reply.x = x;
     mv_reply.y = y;
     while (1) {
         PROCESS_WAIT_EVENT();
-        if (ev == RESPONSE_TRUCK_MSG_EVENT) { // handle responses to truck msg
-            packetbuf_copyfrom(&truck_ack, sizeof(truck_ack_t));
-            while (runicast_is_transmitting(&uc)) {
-                etimer_set(&busy_timer, CLOCK_SECOND / BUSY_TIMER_DIVIDER);
-                PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&busy_timer));
-            }
-            runicast_send(&uc, &truck_addr, MAX_RETRANSMISSIONS);
-
-        } else if (ev == RESPONSE_MOVE_MSG_EVENT) { // handle responses to move msg
+        if (ev == RESPONSE_MOVE_MSG_EVENT) { // handle responses to move msg
             rimeaddr_t addr = *(rimeaddr_t *)data;
-            //printf("REPLYING with MOVE_REPLY to %u\n", ((rimeaddr_t*)data)->u8[0]);
             packetbuf_copyfrom(&mv_reply, sizeof(move_reply_t));
             while (runicast_is_transmitting(&uc)) {
                 etimer_set(&busy_timer, CLOCK_SECOND / BUSY_TIMER_DIVIDER);
