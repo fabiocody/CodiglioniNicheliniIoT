@@ -17,7 +17,7 @@
 #define TRUE  1
 
 
-static unsigned char travelling = FALSE;
+static unsigned char traveling = FALSE;
 static unsigned char x;
 static unsigned char y;
 static unsigned char history_table[MAX_NODES];
@@ -46,10 +46,10 @@ static void recv_runicast(struct runicast_conn *c, const rimeaddr_t *from, uint8
         unsigned char msg_type = GET_MSG_TYPE(msg);
         if (msg_type == ALERT_MSG) {
             puts("incoming message: ALERT_MSG");
-            if (!travelling) {
+            if (!traveling) {
                 alert_msg_t alert_msg = *(alert_msg_t *)msg;
-                printf("travelling to %u\n", alert_msg.id);
-                travelling = TRUE;
+                printf("traveling to %u\n", alert_msg.id);
+                traveling = TRUE;
                 serving_bin.x = alert_msg.x;
                 serving_bin.y = alert_msg.y;
                 serving_bin.id = alert_msg.id;
@@ -131,7 +131,7 @@ PROCESS_THREAD(truck_proc, ev, data){
             }
             packetbuf_copyfrom(&msg, sizeof(truck_msg_t));
             runicast_send(&uc, &recipient, MAX_RETRANSMISSIONS);
-            travelling = FALSE;
+            traveling = FALSE;
         }
     }
     PROCESS_END();
