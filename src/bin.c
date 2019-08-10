@@ -104,7 +104,7 @@ static void unicast_sent(struct runicast_conn *c, const rimeaddr_t *to, uint8_t 
 
 
 static void unicast_timedout(struct runicast_conn *c, const rimeaddr_t *to, uint8_t retransmissions) {
-    printf("runicast message timed out when sending to %u, retransmissions %u\n", to->u8[0], retransmissions);
+    printf("ERROR: runicast message timed out when sending to %u, retransmissions %u\n", to->u8[0], retransmissions);
 }
 
 
@@ -190,6 +190,7 @@ PROCESS_THREAD(full_mode_proc, ev, data) {
         PROCESS_WAIT_EVENT();
         if (ev == FULL_EVENT){
             generation_mode = FALSE;
+            puts("FULL");
 
             while (list_head(neighbor_list)) // neighbor_list cleaning
                 list_pop(neighbor_list);
@@ -238,9 +239,6 @@ PROCESS_THREAD(responses_proc, ev, data) {
         if (ev == RESPONSE_MOVE_MSG_EVENT) { // handle responses to move msg
             move_msg = *(move_msg_t *)data;
             int d = distance(x, y, move_msg.x, move_msg.y);
-            int wait_time = d * BIN_TO_BIN_ALPHA;
-            int wait_ticks = CLOCK_SECOND * d * BIN_TO_BIN_ALPHA;
-            printf("d = %d, wait_time = %d, wait_ticks = %d\n", d, wait_time, wait_ticks);
             etimer_set(&et, CLOCK_SECOND * d * BIN_TO_BIN_ALPHA);
             PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
             while (runicast_is_transmitting(&uc)) {

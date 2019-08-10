@@ -76,7 +76,7 @@ static void sent_runicast(struct runicast_conn *c, const rimeaddr_t *to, uint8_t
  * Just print to console
  */
 static void timedout_runicast(struct runicast_conn *c, const rimeaddr_t *to, uint8_t retransmissions) {
-    printf("runicast message timed out when sending to %d, retransmissions %d\n", to->u8[0], retransmissions);
+    printf("ERROR: runicast message timed out when sending to %d, retransmissions %d\n", to->u8[0], retransmissions);
 }
 
 
