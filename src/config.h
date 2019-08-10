@@ -9,7 +9,7 @@
 #define TRUCK_ADDR 8
 
 #define BIN_TO_BIN_ALPHA 0.01
-#define BIN_TO_TRUCK_ALPHA 1
+#define BIN_TO_TRUCK_ALPHA 0.75
 
 #define MAX_RETRANSMISSIONS 20
 #define MAX_GEN_TRASH 10

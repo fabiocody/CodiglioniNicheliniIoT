@@ -9,7 +9,7 @@
   <simulation>
     <title>Simulation1</title>
     <speedlimit>10.0</speedlimit>
-    <randomseed>123462</randomseed>
+    <randomseed>123463</randomseed>
     <motedelay_us>1000000</motedelay_us>
     <radiomedium>
       se.sics.cooja.radiomediums.UDGM

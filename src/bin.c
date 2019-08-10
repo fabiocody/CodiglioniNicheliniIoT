@@ -56,7 +56,8 @@ static void broadcast_recv(struct broadcast_conn *c, const rimeaddr_t *from) {
     unsigned char msg_type = GET_MSG_TYPE(msg);
     if (msg_type == MOVE_MSG) {
         puts("incoming message: MOVE_MSG");
-        if (trash < ALERT_THRESHOLD) process_post(&responses_proc, RESPONSE_MOVE_MSG_EVENT, (void *)from);
+        if (trash < ALERT_THRESHOLD)
+            process_post(&responses_proc, RESPONSE_MOVE_MSG_EVENT, msg);
     } else printf("ERROR: unrecognized broadcast message of type %u received from %u\n", msg_type, from->u8[0]);
 }
 
@@ -157,11 +158,11 @@ PROCESS_THREAD(alert_mode_proc, ev, data) {
         PROCESS_WAIT_EVENT();
         if (ev == ALERT_EVENT) {
             while (alert_mode) {
-                packetbuf_copyfrom(&msg, sizeof(alert_msg_t));
                 while (runicast_is_transmitting(&uc)) {
                     etimer_set(&busy_timer, CLOCK_SECOND / BUSY_TIMER_DIVIDER);
                     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&busy_timer));
                 }
+                packetbuf_copyfrom(&msg, sizeof(alert_msg_t));
                 runicast_send(&uc, &truck_addr, MAX_RETRANSMISSIONS);
 
                 // Set timer for periodic retransmission
@@ -176,27 +177,29 @@ PROCESS_THREAD(alert_mode_proc, ev, data) {
 
 // FULL MODE PROCESS
 PROCESS_THREAD(full_mode_proc, ev, data) {
-    static move_msg_t msg = {MOVE_MSG};
+    static move_msg_t move_msg = {MOVE_MSG};
     static trash_msg_t trash_msg = {TRASH_MSG};
     static struct etimer et;
-    static struct etimer busy_timer;
     PROCESS_EXITHANDLER(broadcast_close(&bc));
     PROCESS_BEGIN();
     broadcast_open(&bc, BROADCAST_CHANNEL, &broadcast_call);
+    move_msg.x = x;
+    move_msg.y = y;
+    move_msg.id = rimeaddr_node_addr.u8[0];
     while(1) {
         PROCESS_WAIT_EVENT();
         if (ev == FULL_EVENT){
             generation_mode = FALSE;
-            packetbuf_copyfrom(&msg, sizeof(move_msg_t));
-            
+
             while (list_head(neighbor_list)) // neighbor_list cleaning
                 list_pop(neighbor_list);
-            
+
+            packetbuf_copyfrom(&move_msg, sizeof(move_msg_t));
             broadcast_send(&bc);
             etimer_set(&et, CLOCK_SECOND * 2);
             PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
-            
-            neighbor_t *ptr; // compute distance for each node which responded
+
+            static neighbor_t *ptr; // compute distance for each node which responded
             static neighbor_t *min = NULL;
             for (ptr = list_head(neighbor_list), min = ptr; ptr; ptr = list_item_next(ptr)){
                 ptr->distance = distance(x, y, ptr->x, ptr->y);
@@ -208,11 +211,11 @@ PROCESS_THREAD(full_mode_proc, ev, data) {
             } else {
                 printf("sending trash to %u\n", min->addr.u8[0]);
                 trash_msg.trash = gen_trash;
-                packetbuf_copyfrom(&trash_msg, sizeof(trash_msg_t));
                 while (runicast_is_transmitting(&uc)) {
-                    etimer_set(&busy_timer, CLOCK_SECOND / BUSY_TIMER_DIVIDER);
-                    PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&busy_timer));
+                    etimer_set(&et, CLOCK_SECOND / BUSY_TIMER_DIVIDER);
+                    PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
                 }
+                packetbuf_copyfrom(&trash_msg, sizeof(trash_msg_t));
                 runicast_send(&uc, &(min->addr), MAX_RETRANSMISSIONS);
             }
             generation_mode = TRUE;
@@ -224,20 +227,28 @@ PROCESS_THREAD(full_mode_proc, ev, data) {
 
 // RESPONSES PROCESS -- Process to handle responses to other nodes' requests
 PROCESS_THREAD(responses_proc, ev, data) {
-    static struct etimer busy_timer;
-    static move_reply_t mv_reply = {MOVE_REPLY};
+    static struct etimer et;
+    static move_msg_t move_msg;
+    static move_reply_t move_reply = {MOVE_REPLY};
     PROCESS_BEGIN();
-    mv_reply.x = x;
-    mv_reply.y = y;
+    move_reply.x = x;
+    move_reply.y = y;
     while (1) {
         PROCESS_WAIT_EVENT();
         if (ev == RESPONSE_MOVE_MSG_EVENT) { // handle responses to move msg
-            rimeaddr_t addr = *(rimeaddr_t *)data;
-            packetbuf_copyfrom(&mv_reply, sizeof(move_reply_t));
+            move_msg = *(move_msg_t *)data;
+            int d = distance(x, y, move_msg.x, move_msg.y);
+            int wait_time = d * BIN_TO_BIN_ALPHA;
+            int wait_ticks = CLOCK_SECOND * d * BIN_TO_BIN_ALPHA;
+            printf("d = %d, wait_time = %d, wait_ticks = %d\n", d, wait_time, wait_ticks);
+            etimer_set(&et, CLOCK_SECOND * d * BIN_TO_BIN_ALPHA);
+            PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
             while (runicast_is_transmitting(&uc)) {
-                etimer_set(&busy_timer, CLOCK_SECOND / BUSY_TIMER_DIVIDER);
-                PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&busy_timer));
+                etimer_set(&et, CLOCK_SECOND / BUSY_TIMER_DIVIDER);
+                PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
             }
+            packetbuf_copyfrom(&move_reply, sizeof(move_reply_t));
+            rimeaddr_t addr = {{move_msg.id, 0}};
             runicast_send(&uc, &addr, MAX_RETRANSMISSIONS);
         }
     }

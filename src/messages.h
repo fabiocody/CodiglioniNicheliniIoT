@@ -16,10 +16,9 @@
 
 // UNICAST: BIN->TRUCK
 #define    ALERT_MSG  4
-//#define    TRUCK_ACK  5
 
 // UNICAST: TRUCK->BIN
-#define    TRUCK_MSG  6
+#define    TRUCK_MSG  5
 
 
 #define GET_MSG_TYPE(msg) (*(unsigned char *)msg)
@@ -27,8 +26,8 @@
 
 typedef struct {
     unsigned char type;
-    unsigned short x;
-    unsigned short y;
+    unsigned char x;
+    unsigned char y;
     unsigned char id;
 } alert_msg_t;
 
@@ -40,13 +39,16 @@ typedef struct {
 
 typedef struct {
     unsigned char type;
+    unsigned char x;
+    unsigned char y;
+    unsigned char id;
 } move_msg_t;
 
 
 typedef struct {
     unsigned char type;
-    unsigned short x;
-    unsigned short y;
+    unsigned char x;
+    unsigned char y;
 } move_reply_t;
 
 
@@ -54,11 +56,6 @@ typedef struct {
     unsigned char type;
     unsigned int trash;
 } trash_msg_t;
-
-
-/*typedef struct {
-    unsigned char type;
-} truck_ack_t;*/
 
 
 #endif // MESSAGES_H

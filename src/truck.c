@@ -22,7 +22,7 @@ static unsigned char x;
 static unsigned char y;
 static unsigned char history_table[MAX_NODES];
 
-struct {
+static struct {
     unsigned char x;
     unsigned char y;
     unsigned char id;
@@ -47,12 +47,12 @@ static void recv_runicast(struct runicast_conn *c, const rimeaddr_t *from, uint8
         if (msg_type == ALERT_MSG) {
             puts("incoming message: ALERT_MSG");
             if (!travelling) {
-                alert_msg_t *alert_msg = (alert_msg_t *)msg;
-                printf("travelling to %u\n", alert_msg->id);
+                alert_msg_t alert_msg = *(alert_msg_t *)msg;
+                printf("travelling to %u\n", alert_msg.id);
                 travelling = TRUE;
-                serving_bin.x = alert_msg->x;
-                serving_bin.y = alert_msg->y;
-                serving_bin.id = alert_msg->id;
+                serving_bin.x = alert_msg.x;
+                serving_bin.y = alert_msg.y;
+                serving_bin.id = alert_msg.id;
                 process_post(&truck_proc, TRAVEL_EVENT, NULL);
             }
         } else {
@@ -95,7 +95,6 @@ static rimeaddr_t truck_addr = {{TRUCK_ADDR, 0}};
 PROCESS_THREAD(truck_proc, ev, data){
     static struct etimer travel_timer;
     static struct etimer busy_timer;
-    static unsigned int travel_distance;
     static truck_msg_t msg = {TRUCK_MSG};
     PROCESS_EXITHANDLER(runicast_close(&uc));
 
@@ -114,25 +113,23 @@ PROCESS_THREAD(truck_proc, ev, data){
         PROCESS_WAIT_EVENT();
         if (ev == TRAVEL_EVENT) { 
             // distance calculation
-            unsigned int delta_x = abs(x - serving_bin.x);
-            unsigned int delta_y = abs(y - serving_bin.y);
-            travel_distance = floor_sqrt(delta_x * delta_x + delta_y * delta_y);
-            travel_distance *= BIN_TO_TRUCK_ALPHA;
-            printf("travel_time = %u\n", travel_distance);
+            unsigned int d = distance(x, y, serving_bin.x, serving_bin.y);
+            d *= BIN_TO_TRUCK_ALPHA;
+            printf("travel_time = %u\n", d);
 
             // travel time is simulated with a timer
-            etimer_set(&travel_timer, CLOCK_SECOND * travel_distance);
+            etimer_set(&travel_timer, CLOCK_SECOND * d);
             PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&travel_timer));
 
             // message sending
             x = serving_bin.x;
             y = serving_bin.y;
             rimeaddr_t recipient = {{serving_bin.id, 0}};
-            packetbuf_copyfrom(&msg, sizeof(truck_msg_t));
             while (runicast_is_transmitting(&uc)) {
                 etimer_set(&busy_timer, CLOCK_SECOND / BUSY_TIMER_DIVIDER);
                 PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&busy_timer));
             }
+            packetbuf_copyfrom(&msg, sizeof(truck_msg_t));
             runicast_send(&uc, &recipient, MAX_RETRANSMISSIONS);
             travelling = FALSE;
         }
