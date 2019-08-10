@@ -1,5 +1,595 @@
 [
     {
+        "id": "b2cc616b.ac21a",
+        "type": "tab",
+        "label": "IoT Project",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "7879811.f3b1c8",
+        "type": "tcp in",
+        "z": "b2cc616b.ac21a",
+        "name": "Bin 1",
+        "server": "client",
+        "host": "127.0.0.1",
+        "port": "60001",
+        "datamode": "stream",
+        "datatype": "utf8",
+        "newline": "\\n",
+        "topic": "",
+        "base64": false,
+        "x": 70,
+        "y": 80,
+        "wires": [
+            [
+                "f945a3da.c7c378"
+            ]
+        ]
+    },
+    {
+        "id": "f9291882.d74f1",
+        "type": "tcp in",
+        "z": "b2cc616b.ac21a",
+        "name": "Bin 2",
+        "server": "client",
+        "host": "127.0.0.1",
+        "port": "60002",
+        "datamode": "stream",
+        "datatype": "utf8",
+        "newline": "\\n",
+        "topic": "",
+        "base64": false,
+        "x": 70,
+        "y": 140,
+        "wires": [
+            [
+                "1cc201d5.f1c256"
+            ]
+        ]
+    },
+    {
+        "id": "fb464005.c3e8a8",
+        "type": "tcp in",
+        "z": "b2cc616b.ac21a",
+        "name": "Bin 3",
+        "server": "client",
+        "host": "127.0.0.1",
+        "port": "60003",
+        "datamode": "stream",
+        "datatype": "utf8",
+        "newline": "\\n",
+        "topic": "",
+        "base64": false,
+        "x": 70,
+        "y": 200,
+        "wires": [
+            [
+                "3328109f.5a4a2"
+            ]
+        ]
+    },
+    {
+        "id": "c4e4cf8f.c8ef18",
+        "type": "tcp in",
+        "z": "b2cc616b.ac21a",
+        "name": "Bin 4",
+        "server": "client",
+        "host": "127.0.0.1",
+        "port": "60004",
+        "datamode": "stream",
+        "datatype": "utf8",
+        "newline": "\\n",
+        "topic": "",
+        "base64": false,
+        "x": 70,
+        "y": 260,
+        "wires": [
+            [
+                "cd4a8216.c15798"
+            ]
+        ]
+    },
+    {
+        "id": "ca634d59.2b2e78",
+        "type": "tcp in",
+        "z": "b2cc616b.ac21a",
+        "name": "Bin 5",
+        "server": "client",
+        "host": "127.0.0.1",
+        "port": "60005",
+        "datamode": "stream",
+        "datatype": "utf8",
+        "newline": "\\n",
+        "topic": "",
+        "base64": false,
+        "x": 70,
+        "y": 320,
+        "wires": [
+            [
+                "c1061d3d.0b50f"
+            ]
+        ]
+    },
+    {
+        "id": "b00dc024.1fc9a",
+        "type": "tcp in",
+        "z": "b2cc616b.ac21a",
+        "name": "Bin 6",
+        "server": "client",
+        "host": "127.0.0.1",
+        "port": "60006",
+        "datamode": "stream",
+        "datatype": "utf8",
+        "newline": "\\n",
+        "topic": "",
+        "base64": false,
+        "x": 70,
+        "y": 380,
+        "wires": [
+            [
+                "2367ee97.ee6ca2"
+            ]
+        ]
+    },
+    {
+        "id": "5b120b2a.557bdc",
+        "type": "tcp in",
+        "z": "b2cc616b.ac21a",
+        "name": "Bin 7",
+        "server": "client",
+        "host": "127.0.0.1",
+        "port": "60007",
+        "datamode": "stream",
+        "datatype": "utf8",
+        "newline": "\\n",
+        "topic": "",
+        "base64": false,
+        "x": 70,
+        "y": 440,
+        "wires": [
+            [
+                "228327cb.d2a628"
+            ]
+        ]
+    },
+    {
+        "id": "98166f81.66d828",
+        "type": "tcp in",
+        "z": "b2cc616b.ac21a",
+        "name": "Truck",
+        "server": "client",
+        "host": "127.0.0.1",
+        "port": "60008",
+        "datamode": "stream",
+        "datatype": "utf8",
+        "newline": "\\n",
+        "topic": "",
+        "base64": false,
+        "x": 70,
+        "y": 500,
+        "wires": [
+            [
+                "75e5f88d.e3be68",
+                "afb9fc19.0d89d",
+                "380f55c9.5b987a"
+            ]
+        ]
+    },
+    {
+        "id": "d3f265cd.809b18",
+        "type": "ui_gauge",
+        "z": "b2cc616b.ac21a",
+        "name": "Level",
+        "group": "9fcd80e8.06e348",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Level",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 950,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "a0cb643c.979d68",
+        "type": "ui_led",
+        "z": "b2cc616b.ac21a",
+        "group": "9fcd80e8.06e348",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Status",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "red",
+                "value": "red",
+                "valueType": "str"
+            },
+            {
+                "color": "green",
+                "value": "green",
+                "valueType": "str"
+            },
+            {
+                "color": "yellow",
+                "value": "yellow",
+                "valueType": "str"
+            }
+        ],
+        "name": "Status LED",
+        "x": 1110,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "6770ac9a.367b24",
+        "type": "ui_gauge",
+        "z": "b2cc616b.ac21a",
+        "name": "Level",
+        "group": "243413e9.0bd9b4",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Level",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 950,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "2a1ddda1.f6204a",
+        "type": "ui_led",
+        "z": "b2cc616b.ac21a",
+        "group": "243413e9.0bd9b4",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Status",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "red",
+                "value": "red",
+                "valueType": "str"
+            },
+            {
+                "color": "green",
+                "value": "green",
+                "valueType": "str"
+            },
+            {
+                "color": "yellow",
+                "value": "yellow",
+                "valueType": "str"
+            }
+        ],
+        "name": "Status LED",
+        "x": 1110,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "c206cfc0.8d708",
+        "type": "ui_gauge",
+        "z": "b2cc616b.ac21a",
+        "name": "Level",
+        "group": "c56897db.6bb248",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Level",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 950,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "d51fc8bf.146378",
+        "type": "ui_led",
+        "z": "b2cc616b.ac21a",
+        "group": "c56897db.6bb248",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Status",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "red",
+                "value": "red",
+                "valueType": "str"
+            },
+            {
+                "color": "green",
+                "value": "green",
+                "valueType": "str"
+            },
+            {
+                "color": "yellow",
+                "value": "yellow",
+                "valueType": "str"
+            }
+        ],
+        "name": "Status LED",
+        "x": 1110,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "ed1af442.8883e8",
+        "type": "ui_gauge",
+        "z": "b2cc616b.ac21a",
+        "name": "Level",
+        "group": "a4d6aeeb.c8baa8",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Level",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 950,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "28408b2.2d8b8f4",
+        "type": "ui_led",
+        "z": "b2cc616b.ac21a",
+        "group": "a4d6aeeb.c8baa8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Status",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "red",
+                "value": "red",
+                "valueType": "str"
+            },
+            {
+                "color": "green",
+                "value": "green",
+                "valueType": "str"
+            },
+            {
+                "color": "yellow",
+                "value": "yellow",
+                "valueType": "str"
+            }
+        ],
+        "name": "Status LED",
+        "x": 1110,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "efa016c7.cc72a",
+        "type": "ui_gauge",
+        "z": "b2cc616b.ac21a",
+        "name": "Level",
+        "group": "74a65b8.0418ca4",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Level",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 950,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "888a9a3d.de44f8",
+        "type": "ui_led",
+        "z": "b2cc616b.ac21a",
+        "group": "74a65b8.0418ca4",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Status",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "red",
+                "value": "red",
+                "valueType": "str"
+            },
+            {
+                "color": "green",
+                "value": "green",
+                "valueType": "str"
+            },
+            {
+                "color": "yellow",
+                "value": "yellow",
+                "valueType": "str"
+            }
+        ],
+        "name": "Status LED",
+        "x": 1110,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "52e98b0a.3995fc",
+        "type": "ui_gauge",
+        "z": "b2cc616b.ac21a",
+        "name": "Level",
+        "group": "976963f9.8ab63",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Level",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 950,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "f9529c80.9d5a4",
+        "type": "ui_led",
+        "z": "b2cc616b.ac21a",
+        "group": "976963f9.8ab63",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Status",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "red",
+                "value": "red",
+                "valueType": "str"
+            },
+            {
+                "color": "green",
+                "value": "green",
+                "valueType": "str"
+            },
+            {
+                "color": "yellow",
+                "value": "yellow",
+                "valueType": "str"
+            }
+        ],
+        "name": "Status LED",
+        "x": 1110,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "c250d6e9.30ab68",
+        "type": "ui_gauge",
+        "z": "b2cc616b.ac21a",
+        "name": "Level",
+        "group": "ffc6edb8.81b898",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Level",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 950,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "2d4191f0.325e06",
+        "type": "ui_led",
+        "z": "b2cc616b.ac21a",
+        "group": "ffc6edb8.81b898",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Status",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "red",
+                "value": "red",
+                "valueType": "str"
+            },
+            {
+                "color": "green",
+                "value": "green",
+                "valueType": "str"
+            },
+            {
+                "color": "yellow",
+                "value": "yellow",
+                "valueType": "str"
+            }
+        ],
+        "name": "Status LED",
+        "x": 1110,
+        "y": 440,
+        "wires": []
+    },
+    {
         "id": "75e5f88d.e3be68",
         "type": "python3-function",
         "z": "b2cc616b.ac21a",
@@ -13,5 +603,1474 @@
                 "6930fc0f.4a976c"
             ]
         ]
+    },
+    {
+        "id": "6930fc0f.4a976c",
+        "type": "ui_text",
+        "z": "b2cc616b.ac21a",
+        "group": "7f8b249c.9be084",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Destination",
+        "label": "Destination",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 430,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "fa8d7a8a.fdc8e",
+        "type": "ui_text",
+        "z": "b2cc616b.ac21a",
+        "group": "9fcd80e8.06e348",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Last message",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1300,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "db4c4f0b.408728",
+        "type": "ui_text",
+        "z": "b2cc616b.ac21a",
+        "group": "243413e9.0bd9b4",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Last message",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1300,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "bc166ade.47c818",
+        "type": "ui_text",
+        "z": "b2cc616b.ac21a",
+        "group": "c56897db.6bb248",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Last message",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1300,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "bbea339b.c7562",
+        "type": "ui_text",
+        "z": "b2cc616b.ac21a",
+        "group": "a4d6aeeb.c8baa8",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Last message",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1300,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "e08e292d.cd7ed",
+        "type": "ui_text",
+        "z": "b2cc616b.ac21a",
+        "group": "74a65b8.0418ca4",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Last message",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1300,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "45127506.cc68ec",
+        "type": "ui_text",
+        "z": "b2cc616b.ac21a",
+        "group": "976963f9.8ab63",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Last message",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1300,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "e7fbc495.366318",
+        "type": "ui_text",
+        "z": "b2cc616b.ac21a",
+        "group": "ffc6edb8.81b898",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Last message",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1300,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "afb9fc19.0d89d",
+        "type": "python3-function",
+        "z": "b2cc616b.ac21a",
+        "name": "get_message",
+        "func": "if 'incoming message: ' in msg['payload']:\n    msg['payload'] = msg['payload'].split(': ')[1]\n    return msg\nelif 'Rime started' in msg['payload']:\n    msg['payload'] = ''\n    return msg",
+        "outputs": 1,
+        "x": 240,
+        "y": 560,
+        "wires": [
+            [
+                "1dea4fff.8b6118"
+            ]
+        ]
+    },
+    {
+        "id": "1dea4fff.8b6118",
+        "type": "ui_text",
+        "z": "b2cc616b.ac21a",
+        "group": "7f8b249c.9be084",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Last message",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 440,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "380f55c9.5b987a",
+        "type": "python3-function",
+        "z": "b2cc616b.ac21a",
+        "name": "get_travel_time",
+        "func": "if 'travel_time =' in msg['payload']:\n    msg['payload'] = msg['payload'].split(' = ')[1]\n    return msg\nelif 'Rime started' in msg['payload']:\n    msg['payload'] = ''\n    return msg",
+        "outputs": 1,
+        "x": 240,
+        "y": 620,
+        "wires": [
+            [
+                "b854954.03bd1e8"
+            ]
+        ]
+    },
+    {
+        "id": "b854954.03bd1e8",
+        "type": "ui_text",
+        "z": "b2cc616b.ac21a",
+        "group": "7f8b249c.9be084",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "Travel time",
+        "label": "Travel time",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 430,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "3328109f.5a4a2",
+        "type": "change",
+        "z": "b2cc616b.ac21a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "3",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 230,
+        "y": 200,
+        "wires": [
+            [
+                "e0340829.79b73",
+                "76095a6f.abacc4",
+                "b5d96e.e553e69",
+                "be7f031e.a0c7b8"
+            ]
+        ]
+    },
+    {
+        "id": "1cc201d5.f1c256",
+        "type": "change",
+        "z": "b2cc616b.ac21a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "2",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 230,
+        "y": 140,
+        "wires": [
+            [
+                "e0340829.79b73",
+                "76095a6f.abacc4",
+                "b5d96e.e553e69",
+                "be7f031e.a0c7b8"
+            ]
+        ]
+    },
+    {
+        "id": "cd4a8216.c15798",
+        "type": "change",
+        "z": "b2cc616b.ac21a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "4",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 230,
+        "y": 260,
+        "wires": [
+            [
+                "e0340829.79b73",
+                "76095a6f.abacc4",
+                "b5d96e.e553e69",
+                "be7f031e.a0c7b8"
+            ]
+        ]
+    },
+    {
+        "id": "c1061d3d.0b50f",
+        "type": "change",
+        "z": "b2cc616b.ac21a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "5",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 230,
+        "y": 320,
+        "wires": [
+            [
+                "e0340829.79b73",
+                "76095a6f.abacc4",
+                "b5d96e.e553e69",
+                "be7f031e.a0c7b8"
+            ]
+        ]
+    },
+    {
+        "id": "2367ee97.ee6ca2",
+        "type": "change",
+        "z": "b2cc616b.ac21a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "6",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 230,
+        "y": 380,
+        "wires": [
+            [
+                "e0340829.79b73",
+                "76095a6f.abacc4",
+                "b5d96e.e553e69",
+                "be7f031e.a0c7b8"
+            ]
+        ]
+    },
+    {
+        "id": "228327cb.d2a628",
+        "type": "change",
+        "z": "b2cc616b.ac21a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "7",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 230,
+        "y": 440,
+        "wires": [
+            [
+                "e0340829.79b73",
+                "76095a6f.abacc4",
+                "b5d96e.e553e69",
+                "be7f031e.a0c7b8"
+            ]
+        ]
+    },
+    {
+        "id": "e0340829.79b73",
+        "type": "python3-function",
+        "z": "b2cc616b.ac21a",
+        "name": "get_level",
+        "func": "if 'trash =' in msg['payload']:\n    level = [s for s in msg['payload'].split() if s.isdigit()][0]\n    msg['payload'] = level\n    return msg",
+        "outputs": 1,
+        "x": 440,
+        "y": 220,
+        "wires": [
+            [
+                "7e387844.98e02",
+                "4d0fc2ad.af93ec"
+            ]
+        ]
+    },
+    {
+        "id": "7e387844.98e02",
+        "type": "python3-function",
+        "z": "b2cc616b.ac21a",
+        "name": "get_color",
+        "func": "level = int(msg['payload'])\nif level < 85:\n    msg['payload'] = 'green'\nelif 85 <= level < 100:\n    msg['payload'] = 'yellow'\nelse:\n    msg['payload'] = 'red'\nreturn msg\n",
+        "outputs": 1,
+        "x": 600,
+        "y": 220,
+        "wires": [
+            [
+                "3a7fc356.8bef14"
+            ]
+        ]
+    },
+    {
+        "id": "76095a6f.abacc4",
+        "type": "python3-function",
+        "z": "b2cc616b.ac21a",
+        "name": "get_message_type",
+        "func": "if 'incoming message: ' in msg['payload']:\n    msg['payload'] = msg['payload'].split(': ')[1]\n    return msg\nelif 'Rime started' in msg['payload']:\n    msg['payload'] = ''\n    return msg",
+        "outputs": 1,
+        "x": 470,
+        "y": 280,
+        "wires": [
+            [
+                "4fa164ee.26a4c4",
+                "870a49d2.382a2"
+            ]
+        ]
+    },
+    {
+        "id": "f945a3da.c7c378",
+        "type": "change",
+        "z": "b2cc616b.ac21a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 230,
+        "y": 80,
+        "wires": [
+            [
+                "e0340829.79b73",
+                "76095a6f.abacc4",
+                "b5d96e.e553e69",
+                "be7f031e.a0c7b8"
+            ]
+        ]
+    },
+    {
+        "id": "4d0fc2ad.af93ec",
+        "type": "switch",
+        "z": "b2cc616b.ac21a",
+        "name": "",
+        "property": "id",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "4",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "5",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "7",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 7,
+        "x": 750,
+        "y": 100,
+        "wires": [
+            [
+                "d3f265cd.809b18"
+            ],
+            [
+                "6770ac9a.367b24"
+            ],
+            [
+                "c206cfc0.8d708"
+            ],
+            [
+                "ed1af442.8883e8"
+            ],
+            [
+                "efa016c7.cc72a"
+            ],
+            [
+                "52e98b0a.3995fc"
+            ],
+            [
+                "c250d6e9.30ab68"
+            ]
+        ]
+    },
+    {
+        "id": "3a7fc356.8bef14",
+        "type": "switch",
+        "z": "b2cc616b.ac21a",
+        "name": "",
+        "property": "id",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "4",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "5",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "7",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 7,
+        "x": 750,
+        "y": 220,
+        "wires": [
+            [
+                "a0cb643c.979d68"
+            ],
+            [
+                "2a1ddda1.f6204a"
+            ],
+            [
+                "d51fc8bf.146378"
+            ],
+            [
+                "28408b2.2d8b8f4"
+            ],
+            [
+                "888a9a3d.de44f8"
+            ],
+            [
+                "f9529c80.9d5a4"
+            ],
+            [
+                "2d4191f0.325e06"
+            ]
+        ]
+    },
+    {
+        "id": "4fa164ee.26a4c4",
+        "type": "switch",
+        "z": "b2cc616b.ac21a",
+        "name": "",
+        "property": "id",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "4",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "5",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "7",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 7,
+        "x": 750,
+        "y": 340,
+        "wires": [
+            [
+                "fa8d7a8a.fdc8e"
+            ],
+            [
+                "db4c4f0b.408728"
+            ],
+            [
+                "bc166ade.47c818"
+            ],
+            [
+                "bbea339b.c7562"
+            ],
+            [
+                "e08e292d.cd7ed"
+            ],
+            [
+                "45127506.cc68ec"
+            ],
+            [
+                "e7fbc495.366318"
+            ]
+        ]
+    },
+    {
+        "id": "b5d96e.e553e69",
+        "type": "python3-function",
+        "z": "b2cc616b.ac21a",
+        "name": "get_gen_trash",
+        "func": "if 'gen_trash' in msg['payload']:\n    msg['payload'] = msg['payload'].split('gen_trash = ')[1][:-1]\n    return msg\nelif 'Rime started' in msg['payload']:\n    msg['payload'] = ''\n    return msg",
+        "outputs": 1,
+        "x": 460,
+        "y": 340,
+        "wires": [
+            [
+                "d0a6cca7.c12038"
+            ]
+        ]
+    },
+    {
+        "id": "d0a6cca7.c12038",
+        "type": "switch",
+        "z": "b2cc616b.ac21a",
+        "name": "",
+        "property": "id",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "4",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "5",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "7",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 7,
+        "x": 750,
+        "y": 460,
+        "wires": [
+            [
+                "b2375d25.5ceca8"
+            ],
+            [
+                "4cd699c8.62478"
+            ],
+            [
+                "9584f300.b662f"
+            ],
+            [
+                "76f2522b.3a71fc"
+            ],
+            [
+                "60b5d5f1.40b994"
+            ],
+            [
+                "12834273.531ca6"
+            ],
+            [
+                "ca113fef.137c3"
+            ]
+        ]
+    },
+    {
+        "id": "b2375d25.5ceca8",
+        "type": "ui_text",
+        "z": "b2cc616b.ac21a",
+        "group": "9fcd80e8.06e348",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "Last generated trash",
+        "label": "Last generated trash",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1520,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "4cd699c8.62478",
+        "type": "ui_text",
+        "z": "b2cc616b.ac21a",
+        "group": "243413e9.0bd9b4",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "Last generated trash",
+        "label": "Last generated trash",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1520,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "9584f300.b662f",
+        "type": "ui_text",
+        "z": "b2cc616b.ac21a",
+        "group": "c56897db.6bb248",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "Last generated trash",
+        "label": "Last generated trash",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1520,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "76f2522b.3a71fc",
+        "type": "ui_text",
+        "z": "b2cc616b.ac21a",
+        "group": "a4d6aeeb.c8baa8",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "Last generated trash",
+        "label": "Last generated trash",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1520,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "60b5d5f1.40b994",
+        "type": "ui_text",
+        "z": "b2cc616b.ac21a",
+        "group": "74a65b8.0418ca4",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "Last generated trash",
+        "label": "Last generated trash",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1520,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "12834273.531ca6",
+        "type": "ui_text",
+        "z": "b2cc616b.ac21a",
+        "group": "976963f9.8ab63",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "Last generated trash",
+        "label": "Last generated trash",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1520,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "ca113fef.137c3",
+        "type": "ui_text",
+        "z": "b2cc616b.ac21a",
+        "group": "ffc6edb8.81b898",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "Last generated trash",
+        "label": "Last generated trash",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1520,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "870a49d2.382a2",
+        "type": "python3-function",
+        "z": "b2cc616b.ac21a",
+        "name": "TRASH_MSG_received",
+        "func": "if 'TRASH_MSG' in msg['payload']:\n    return msg",
+        "outputs": 1,
+        "x": 710,
+        "y": 600,
+        "wires": [
+            [
+                "52a9b755.8b7fd8",
+                "94ece317.dc183",
+                "ca6287b2.267a3",
+                "7bab79d4.37db38",
+                "e72e76a9.92a71"
+            ]
+        ]
+    },
+    {
+        "id": "cbed15ed.91372",
+        "type": "trigger",
+        "z": "b2cc616b.ac21a",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "100",
+        "extend": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 1740,
+        "y": 80,
+        "wires": [
+            [
+                "d3d3ef32.546f58"
+            ]
+        ]
+    },
+    {
+        "id": "d3d3ef32.546f58",
+        "type": "ui_led",
+        "z": "b2cc616b.ac21a",
+        "group": "9fcd80e8.06e348",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Incoming trash",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "orange",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "name": "Incoming trash",
+        "x": 1940,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "52a9b755.8b7fd8",
+        "type": "switch",
+        "z": "b2cc616b.ac21a",
+        "name": "",
+        "property": "id",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "4",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "5",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "7",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 7,
+        "x": 1170,
+        "y": 600,
+        "wires": [
+            [
+                "cbed15ed.91372"
+            ],
+            [
+                "46c05163.93afd8"
+            ],
+            [
+                "4687b902.727d88"
+            ],
+            [
+                "2f5a6193.606656"
+            ],
+            [
+                "6011cfb1.ab64a8"
+            ],
+            [
+                "b1d6beed.6788a"
+            ],
+            [
+                "ebe877f4.4bd29"
+            ]
+        ]
+    },
+    {
+        "id": "ebe877f4.4bd29",
+        "type": "trigger",
+        "z": "b2cc616b.ac21a",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "100",
+        "extend": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 1740,
+        "y": 440,
+        "wires": [
+            [
+                "f31fc385.5df7e"
+            ]
+        ]
+    },
+    {
+        "id": "b1d6beed.6788a",
+        "type": "trigger",
+        "z": "b2cc616b.ac21a",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "100",
+        "extend": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 1740,
+        "y": 380,
+        "wires": [
+            [
+                "192d75aa.a926d2"
+            ]
+        ]
+    },
+    {
+        "id": "6011cfb1.ab64a8",
+        "type": "trigger",
+        "z": "b2cc616b.ac21a",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "100",
+        "extend": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 1740,
+        "y": 320,
+        "wires": [
+            [
+                "ad42de2b.9b051"
+            ]
+        ]
+    },
+    {
+        "id": "2f5a6193.606656",
+        "type": "trigger",
+        "z": "b2cc616b.ac21a",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "100",
+        "extend": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 1740,
+        "y": 260,
+        "wires": [
+            [
+                "2721089b.6b11c8"
+            ]
+        ]
+    },
+    {
+        "id": "4687b902.727d88",
+        "type": "trigger",
+        "z": "b2cc616b.ac21a",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "100",
+        "extend": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 1740,
+        "y": 200,
+        "wires": [
+            [
+                "10e91c6.acaf364"
+            ]
+        ]
+    },
+    {
+        "id": "46c05163.93afd8",
+        "type": "trigger",
+        "z": "b2cc616b.ac21a",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "100",
+        "extend": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 1740,
+        "y": 140,
+        "wires": [
+            [
+                "3ec635e7.ee946a"
+            ]
+        ]
+    },
+    {
+        "id": "3ec635e7.ee946a",
+        "type": "ui_led",
+        "z": "b2cc616b.ac21a",
+        "group": "243413e9.0bd9b4",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Incoming trash",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "orange",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "name": "Incoming trash",
+        "x": 1940,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "10e91c6.acaf364",
+        "type": "ui_led",
+        "z": "b2cc616b.ac21a",
+        "group": "c56897db.6bb248",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Incoming trash",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "orange",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "name": "Incoming trash",
+        "x": 1940,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "2721089b.6b11c8",
+        "type": "ui_led",
+        "z": "b2cc616b.ac21a",
+        "group": "a4d6aeeb.c8baa8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Incoming trash",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "orange",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "name": "Incoming trash",
+        "x": 1940,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "ad42de2b.9b051",
+        "type": "ui_led",
+        "z": "b2cc616b.ac21a",
+        "group": "74a65b8.0418ca4",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Incoming trash",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "orange",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "name": "Incoming trash",
+        "x": 1940,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "192d75aa.a926d2",
+        "type": "ui_led",
+        "z": "b2cc616b.ac21a",
+        "group": "976963f9.8ab63",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Incoming trash",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "orange",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "name": "Incoming trash",
+        "x": 1940,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "f31fc385.5df7e",
+        "type": "ui_led",
+        "z": "b2cc616b.ac21a",
+        "group": "ffc6edb8.81b898",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Incoming trash",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "orange",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "name": "Incoming trash",
+        "x": 1940,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "94ece317.dc183",
+        "type": "delay",
+        "z": "b2cc616b.ac21a",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "200",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 970,
+        "y": 640,
+        "wires": [
+            [
+                "52a9b755.8b7fd8"
+            ]
+        ]
+    },
+    {
+        "id": "ca6287b2.267a3",
+        "type": "delay",
+        "z": "b2cc616b.ac21a",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "400",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 970,
+        "y": 680,
+        "wires": [
+            [
+                "52a9b755.8b7fd8"
+            ]
+        ]
+    },
+    {
+        "id": "7bab79d4.37db38",
+        "type": "delay",
+        "z": "b2cc616b.ac21a",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "600",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 970,
+        "y": 720,
+        "wires": [
+            [
+                "52a9b755.8b7fd8"
+            ]
+        ]
+    },
+    {
+        "id": "e72e76a9.92a71",
+        "type": "delay",
+        "z": "b2cc616b.ac21a",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "800",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 970,
+        "y": 760,
+        "wires": [
+            [
+                "52a9b755.8b7fd8"
+            ]
+        ]
+    },
+    {
+        "id": "be7f031e.a0c7b8",
+        "type": "python3-function",
+        "z": "b2cc616b.ac21a",
+        "name": "get_full",
+        "func": "if 'FULL' in msg['payload']:\n    msg['payload'] = 'red'\n    return msg",
+        "outputs": 1,
+        "x": 440,
+        "y": 160,
+        "wires": [
+            [
+                "3a7fc356.8bef14"
+            ]
+        ]
+    },
+    {
+        "id": "9fcd80e8.06e348",
+        "type": "ui_group",
+        "z": "",
+        "name": "Bin 1",
+        "tab": "5e9b3a21.362c44",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "243413e9.0bd9b4",
+        "type": "ui_group",
+        "z": "",
+        "name": "Bin 2",
+        "tab": "5e9b3a21.362c44",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "c56897db.6bb248",
+        "type": "ui_group",
+        "z": "",
+        "name": "Bin 3",
+        "tab": "5e9b3a21.362c44",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "a4d6aeeb.c8baa8",
+        "type": "ui_group",
+        "z": "",
+        "name": "Bin 4",
+        "tab": "5e9b3a21.362c44",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "74a65b8.0418ca4",
+        "type": "ui_group",
+        "z": "",
+        "name": "Bin 5",
+        "tab": "5e9b3a21.362c44",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "976963f9.8ab63",
+        "type": "ui_group",
+        "z": "",
+        "name": "Bin 6",
+        "tab": "5e9b3a21.362c44",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "ffc6edb8.81b898",
+        "type": "ui_group",
+        "z": "",
+        "name": "Bin 7",
+        "tab": "5e9b3a21.362c44",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "7f8b249c.9be084",
+        "type": "ui_group",
+        "z": "",
+        "name": "Truck",
+        "tab": "5e9b3a21.362c44",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "5e9b3a21.362c44",
+        "type": "ui_tab",
+        "z": "",
+        "name": "IoT Project",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
     }
 ]
