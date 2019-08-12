@@ -1,10 +1,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[12pt]{article}
+\documentclass[11pt]{scrartcl}
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
 \usepackage{amsmath}
 \usepackage{graphicx}
-\usepackage{bera}
+\usepackage{DejaVuSerif}
+\usepackage{sourcecodepro}
 \graphicspath{{Images/}}
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage{hyperref}
@@ -12,8 +13,12 @@
 
 %\usepackage{fancyhdr}
 %\pagestyle{fancy}
+
+\areaset{17cm}{22.5cm}              % Set page width and height
+
 \begin{document}
 \begin{titlepage}
+\pagenumbering{gobble}
 \newcommand{\HRule}{\rule{\linewidth}{0.1mm}} 
 \center % Center everything on the page
  
@@ -34,12 +39,12 @@
 \begin{minipage}{0.4\textwidth}
 \begin{flushleft} \large
 
-Fabio \textsc{Codiglioni}\\T.No.  % Enter Your name and T.No.
+Fabio \textsc{Codiglioni}\\ 919897 - 10484720  % Enter Your name and T.No.
 \end{flushleft}
 \begin{flushleft} \large
 
 
-Alessandro \textsc{Nichelini}\\ 949880 - 10497404.  % Enter Your name and T.No.
+Alessandro \textsc{Nichelini}\\ 949880 - 10497404  % Enter Your name and T.No.
 \end{flushleft}
 
 
@@ -64,6 +69,8 @@ Matteo \textsc{Cesana} % Supervisor's Name
 \listoffigures
 \newpage
 
+\pagenumbering{arabic}
+
 % Do not edit the below sections, enter all details in respective chapters
 % Add the images/screen-shorts to the image folder and insert them in the respective chapters
 \section{Abstract}
@@ -75,16 +82,16 @@ This document describes the implementation of our project for the IoT course.
 
 \section{Implementation design choices}
 \subsection{Architecture}
-The system is composed by two firmware:
+The system is composed by two firmwares:
 \begin{itemize}
-	\item \textit{Bin.c}
-	\item \textit{Truck.c}
+	\item \texttt{bin.c}
+	\item \texttt{truck.c}
 \end{itemize}
-Bin.c is the firmware to load on each smart bin. It is based on a finite state machine as shown by the picture below:
+\texttt{bin.c} is the firmware to load on each smart bin. It is based on a finite state machine as shown in the picture below:
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{resources/bin_state_chart}	
+	\includegraphics[width=0.5\textwidth]{resources/bin_state_chart}	
 	\caption{Finite state machine model for bin.c}
 \end{figure}
 
@@ -92,7 +99,7 @@ In particular all the operations and details are shown in the following flow cha
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{resources/bin_flow_chart}
+	\includegraphics[width=0.7\textwidth]{resources/bin_flow_chart}
 	\caption{Flow chart diagram for bin.c}
 \end{figure}
 
