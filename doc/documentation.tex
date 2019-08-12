@@ -1,7 +1,4 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% ELEE	3720 Electromechanical Energy Conversion: Report template
-% By Ratheesh Ravindran
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[12pt]{article}
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
@@ -78,10 +75,41 @@ This document describes the implementation of our project for the IoT course.
 
 \section{Implementation design choices}
 \subsection{Architecture}
-\subsection{Requirements mapping}
-% architecture's description
-% elenco puntato di roba
-% mapping dei requisiti
+The system is composed by two firmware:
+\begin{itemize}
+	\item \textit{Bin.c}
+	\item \textit{Truck.c}
+\end{itemize}
+Bin.c is the firmware to load on each smart bin. It is based on a finite state machine as shown by the picture below:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{resources/bin_state_chart}	
+	\caption{Finite state machine model for bin.c}
+\end{figure}
+
+In particular all the operations and details are shown in the following flow chart diagram.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{resources/bin_flow_chart}
+	\caption{Flow chart diagram for bin.c}
+\end{figure}
+
+\subsection{Other implementation details}
+
+\begin{itemize}
+	\item We adopted two different kind of transmission protocol (both of them based on native Rame stack):
+		\begin{itemize}
+			\item Broadcast:
+			\item RUnicast:
+		\end{itemize}
+\end{itemize}
+
+
+
+
+
 
 
 
