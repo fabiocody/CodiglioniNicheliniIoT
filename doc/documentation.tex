@@ -104,14 +104,22 @@ In particular all the operations and details are shown in the following flow cha
 	\caption{Flow chart diagram for bin.c}
 \end{figure}
 
+\texttt{truck.c} is the firmware to load on the truck . It is based on a finite state machine as well.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.35\textwidth]{resources/truck_state_chart}
+	\caption{Final state machine model for \texttt{truck.c}}
+\end{figure}
+
 \subsection{Other implementation details}
 
 \begin{itemize}
-	\item We adopted two different kind of transmission protocol (both of them based on native Rame stack):
+	\item We adopted two different kind of transmission protocol (both of them based on native Rime stack):
 		\begin{itemize}
-			\item Broadcast:
-			\item RUnicast:
-		\end{itemize}
+			\item \href{http://contiki.sourceforge.net/docs/2.6/a01720.html}{\textbf{Broadcast}}: The broadcast module sends packets to all local area neighbours with an a header that identifies the sender. No retransmission and acknowledgement implemented.
+			\item \href{http://contiki.sourceforge.net/docs/2.6/a01738.html}{\textbf{RUnicast}}: \textit{Contiki's default protocol for single-hop unicast}. The runicast primitive uses acknowledgements and retransmissions to ensure that the neighbour successfully receives the packet, thus we were able to avoid to implement an explicit acknowledgements system.
+		\end{itemize}	
 \end{itemize}
 
 
