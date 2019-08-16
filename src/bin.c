@@ -125,7 +125,7 @@ PROCESS_THREAD(trash_proc, ev, data) {
         if (generation_mode) {
             gen_trash = 1 + random_rand() % MAX_GEN_TRASH;  // trash generation
             if (trash + gen_trash < FULL_THRESHOLD) {
-                trash += gen_trash; 
+                trash += gen_trash;
                 if (trash >= ALERT_THRESHOLD) {
                     alert_mode = TRUE;
                     process_post(&alert_mode_proc, ALERT_EVENT, NULL);      // wake up alert mode process
@@ -204,10 +204,10 @@ PROCESS_THREAD(full_mode_proc, ev, data) {
             static neighbor_t *min = NULL;
             for (ptr = list_head(neighbor_list), min = ptr; ptr; ptr = list_item_next(ptr)){
                 ptr->distance = distance(x, y, ptr->x, ptr->y);
-                if (ptr->distance < min->distance) min = ptr;  
+                if (ptr->distance < min->distance) min = ptr;
             }
 
-            if (min == NULL) { 
+            if (min == NULL) {
                 puts("ERROR: no replies");
             } else {
                 printf("sending trash to %u\n", min->addr.u8[0]);
@@ -252,4 +252,3 @@ PROCESS_THREAD(responses_proc, ev, data) {
     }
     PROCESS_END();
 }
-
