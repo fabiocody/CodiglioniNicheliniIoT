@@ -1,0 +1,771 @@
+00:00.399	ID:6	Rime started with address 6.0
+00:00.407	ID:6	MAC 06:00:00:00:00:00:00:00 Contiki 2.7 started. Node id is set to 6.
+00:00.415	ID:6	CSMA ContikiMAC, channel check rate 8 Hz, radio channel 26
+00:00.424	ID:6	Starting 'Trash generation process' 'Alert mode process' 'Full bin mode process' 'Process to handle direct responses'
+00:00.425	ID:6	trash = 0
+00:00.607	ID:5	Rime started with address 5.0
+00:00.615	ID:5	MAC 05:00:00:00:00:00:00:00 Contiki 2.7 started. Node id is set to 5.
+00:00.624	ID:5	CSMA ContikiMAC, channel check rate 8 Hz, radio channel 26
+00:00.633	ID:5	Starting 'Trash generation process' 'Alert mode process' 'Full bin mode process' 'Process to handle direct responses'
+00:00.633	ID:5	trash = 0
+00:00.656	ID:4	Rime started with address 4.0
+00:00.664	ID:4	MAC 04:00:00:00:00:00:00:00 Contiki 2.7 started. Node id is set to 4.
+00:00.673	ID:4	CSMA ContikiMAC, channel check rate 8 Hz, radio channel 26
+00:00.682	ID:4	Starting 'Trash generation process' 'Alert mode process' 'Full bin mode process' 'Process to handle direct responses'
+00:00.682	ID:4	trash = 0
+00:00.762	ID:8	Rime started with address 8.0
+00:00.770	ID:8	MAC 08:00:00:00:00:00:00:00 Contiki 2.7 started. Node id is set to 8.
+00:00.779	ID:8	CSMA ContikiMAC, channel check rate 8 Hz, radio channel 26
+00:00.780	ID:8	Starting 'Truck process'
+00:00.960	ID:3	Rime started with address 3.0
+00:00.968	ID:3	MAC 03:00:00:00:00:00:00:00 Contiki 2.7 started. Node id is set to 3.
+00:00.977	ID:3	CSMA ContikiMAC, channel check rate 8 Hz, radio channel 26
+00:00.985	ID:3	Starting 'Trash generation process' 'Alert mode process' 'Full bin mode process' 'Process to handle direct responses'
+00:00.986	ID:3	trash = 0
+00:01.014	ID:7	Rime started with address 7.0
+00:01.022	ID:7	MAC 07:00:00:00:00:00:00:00 Contiki 2.7 started. Node id is set to 7.
+00:01.031	ID:7	CSMA ContikiMAC, channel check rate 8 Hz, radio channel 26
+00:01.040	ID:7	Starting 'Trash generation process' 'Alert mode process' 'Full bin mode process' 'Process to handle direct responses'
+00:01.040	ID:7	trash = 0
+00:01.068	ID:1	Rime started with address 1.0
+00:01.076	ID:1	MAC 01:00:00:00:00:00:00:00 Contiki 2.7 started. Node id is set to 1.
+00:01.085	ID:1	CSMA ContikiMAC, channel check rate 8 Hz, radio channel 26
+00:01.093	ID:1	Starting 'Trash generation process' 'Alert mode process' 'Full bin mode process' 'Process to handle direct responses'
+00:01.094	ID:1	trash = 0
+00:01.242	ID:2	Rime started with address 2.0
+00:01.250	ID:2	MAC 02:00:00:00:00:00:00:00 Contiki 2.7 started. Node id is set to 2.
+00:01.259	ID:2	CSMA ContikiMAC, channel check rate 8 Hz, radio channel 26
+00:01.267	ID:2	Starting 'Trash generation process' 'Alert mode process' 'Full bin mode process' 'Process to handle direct responses'
+00:01.268	ID:2	trash = 0
+00:03.988	ID:3	trash = 4 (gen_trash = 4)
+00:05.636	ID:5	trash = 6 (gen_trash = 6)
+00:11.270	ID:2	trash = 5 (gen_trash = 5)
+00:14.636	ID:5	trash = 12 (gen_trash = 6)
+00:18.096	ID:1	trash = 2 (gen_trash = 2)
+00:22.043	ID:7	trash = 8 (gen_trash = 8)
+00:26.685	ID:4	trash = 7 (gen_trash = 7)
+00:27.043	ID:7	trash = 10 (gen_trash = 2)
+00:27.271	ID:2	trash = 14 (gen_trash = 9)
+00:28.427	ID:6	trash = 9 (gen_trash = 9)
+00:32.988	ID:3	trash = 8 (gen_trash = 4)
+00:37.096	ID:1	trash = 10 (gen_trash = 8)
+00:37.636	ID:5	trash = 14 (gen_trash = 2)
+00:38.685	ID:4	trash = 12 (gen_trash = 5)
+00:40.096	ID:1	trash = 12 (gen_trash = 2)
+00:44.636	ID:5	trash = 18 (gen_trash = 4)
+00:45.988	ID:3	trash = 10 (gen_trash = 2)
+00:46.043	ID:7	trash = 18 (gen_trash = 8)
+00:50.427	ID:6	trash = 10 (gen_trash = 1)
+00:51.636	ID:5	trash = 20 (gen_trash = 2)
+00:55.096	ID:1	trash = 14 (gen_trash = 2)
+00:56.427	ID:6	trash = 17 (gen_trash = 7)
+00:56.988	ID:3	trash = 18 (gen_trash = 8)
+00:57.271	ID:2	trash = 21 (gen_trash = 7)
+01:00.097	ID:1	trash = 24 (gen_trash = 10)
+01:00.427	ID:6	trash = 22 (gen_trash = 5)
+01:03.043	ID:7	trash = 28 (gen_trash = 10)
+01:04.685	ID:4	trash = 19 (gen_trash = 7)
+01:17.988	ID:3	trash = 26 (gen_trash = 8)
+01:18.636	ID:5	trash = 24 (gen_trash = 4)
+01:23.096	ID:1	trash = 26 (gen_trash = 2)
+01:25.271	ID:2	trash = 28 (gen_trash = 7)
+01:26.043	ID:7	trash = 38 (gen_trash = 10)
+01:28.685	ID:4	trash = 28 (gen_trash = 9)
+01:30.427	ID:6	trash = 31 (gen_trash = 9)
+01:33.636	ID:5	trash = 26 (gen_trash = 2)
+01:34.989	ID:3	trash = 36 (gen_trash = 10)
+01:40.636	ID:5	trash = 28 (gen_trash = 2)
+01:42.096	ID:1	trash = 30 (gen_trash = 4)
+01:42.685	ID:4	trash = 33 (gen_trash = 5)
+01:46.427	ID:6	trash = 36 (gen_trash = 5)
+01:47.043	ID:7	trash = 40 (gen_trash = 2)
+01:51.988	ID:3	trash = 44 (gen_trash = 8)
+01:53.271	ID:2	trash = 29 (gen_trash = 1)
+01:58.988	ID:3	trash = 46 (gen_trash = 2)
+01:59.988	ID:3	trash = 48 (gen_trash = 2)
+02:00.043	ID:7	trash = 46 (gen_trash = 6)
+02:00.427	ID:6	trash = 37 (gen_trash = 1)
+02:04.685	ID:4	trash = 40 (gen_trash = 7)
+02:05.096	ID:1	trash = 32 (gen_trash = 2)
+02:06.427	ID:6	trash = 46 (gen_trash = 9)
+02:07.636	ID:5	trash = 38 (gen_trash = 10)
+02:08.427	ID:6	trash = 55 (gen_trash = 9)
+02:18.427	ID:6	trash = 64 (gen_trash = 9)
+02:20.685	ID:4	trash = 47 (gen_trash = 7)
+02:21.043	ID:7	trash = 48 (gen_trash = 2)
+02:21.271	ID:2	trash = 32 (gen_trash = 3)
+02:22.636	ID:5	trash = 46 (gen_trash = 8)
+02:22.989	ID:3	trash = 58 (gen_trash = 10)
+02:23.988	ID:3	trash = 62 (gen_trash = 4)
+02:24.988	ID:3	trash = 66 (gen_trash = 4)
+02:25.636	ID:5	trash = 48 (gen_trash = 2)
+02:26.096	ID:1	trash = 36 (gen_trash = 4)
+02:28.043	ID:7	trash = 56 (gen_trash = 8)
+02:33.988	ID:3	trash = 74 (gen_trash = 8)
+02:36.636	ID:5	trash = 50 (gen_trash = 2)
+02:38.427	ID:6	trash = 73 (gen_trash = 9)
+02:39.271	ID:2	trash = 35 (gen_trash = 3)
+02:40.988	ID:3	trash = 78 (gen_trash = 4)
+02:42.685	ID:4	trash = 56 (gen_trash = 9)
+02:43.096	ID:1	trash = 44 (gen_trash = 8)
+02:48.685	ID:4	trash = 57 (gen_trash = 1)
+02:49.043	ID:7	trash = 66 (gen_trash = 10)
+02:52.685	ID:4	trash = 64 (gen_trash = 7)
+02:54.685	ID:4	trash = 65 (gen_trash = 1)
+02:56.096	ID:1	trash = 50 (gen_trash = 6)
+02:59.636	ID:5	trash = 54 (gen_trash = 4)
+03:00.685	ID:4	trash = 66 (gen_trash = 1)
+03:01.271	ID:2	trash = 44 (gen_trash = 9)
+03:03.096	ID:1	trash = 52 (gen_trash = 2)
+03:08.427	ID:6	trash = 82 (gen_trash = 9)
+03:09.989	ID:3	trash = 88 (gen_trash = 10)
+03:09.992	ID:3	ALERT message sent
+03:10.027	ID:8	incoming message: ALERT_MSG
+03:10.028	ID:8	traveling to 3
+03:10.030	ID:8	travel_time = 27
+03:10.043	ID:7	trash = 76 (gen_trash = 10)
+03:12.096	ID:1	trash = 54 (gen_trash = 2)
+03:15.043	ID:7	trash = 86 (gen_trash = 10)
+03:15.046	ID:7	ALERT message sent
+03:15.153	ID:8	incoming message: ALERT_MSG
+03:16.685	ID:4	trash = 67 (gen_trash = 1)
+03:17.097	ID:1	trash = 64 (gen_trash = 10)
+03:19.989	ID:3	ALERT message sent
+03:20.028	ID:8	incoming message: ALERT_MSG
+03:24.636	ID:5	trash = 56 (gen_trash = 2)
+03:25.043	ID:7	ALERT message sent
+03:25.151	ID:8	incoming message: ALERT_MSG
+03:27.271	ID:2	trash = 47 (gen_trash = 3)
+03:29.989	ID:3	ALERT message sent
+03:30.027	ID:8	incoming message: ALERT_MSG
+03:32.685	ID:4	trash = 72 (gen_trash = 5)
+03:33.636	ID:5	trash = 64 (gen_trash = 8)
+03:35.043	ID:7	ALERT message sent
+03:35.152	ID:8	incoming message: ALERT_MSG
+03:36.096	ID:1	trash = 66 (gen_trash = 2)
+03:37.033	ID:8	arrived to node 3
+03:37.101	ID:3	incoming message: TRUCK_MSG
+03:37.102	ID:3	trash = 0
+03:38.045	ID:7	trash = 96 (gen_trash = 10)
+03:38.427	ID:6	trash = 89 (gen_trash = 7)
+03:38.430	ID:6	ALERT message sent
+03:38.527	ID:8	incoming message: ALERT_MSG
+03:38.528	ID:8	traveling to 6
+03:38.530	ID:8	travel_time = 11
+03:38.990	ID:3	trash = 1 (gen_trash = 1)
+03:42.636	ID:5	trash = 68 (gen_trash = 4)
+03:44.685	ID:4	trash = 81 (gen_trash = 9)
+03:45.043	ID:7	ALERT message sent
+03:45.152	ID:8	incoming message: ALERT_MSG
+03:48.428	ID:6	ALERT message sent
+03:48.685	ID:4	trash = 90 (gen_trash = 9)
+03:48.688	ID:4	ALERT message sent
+03:48.776	ID:8	incoming message: ALERT_MSG
+03:49.278	ID:8	incoming message: ALERT_MSG
+03:49.535	ID:8	arrived to node 6
+03:55.039	ID:6	incoming message: TRUCK_MSG
+03:55.040	ID:6	trash = 0
+03:55.043	ID:7	ALERT message sent
+03:55.096	ID:1	trash = 70 (gen_trash = 4)
+03:55.152	ID:8	incoming message: ALERT_MSG
+03:55.153	ID:8	traveling to 7
+03:55.156	ID:8	travel_time = 18
+03:55.271	ID:2	trash = 56 (gen_trash = 9)
+03:56.427	ID:6	trash = 4 (gen_trash = 4)
+03:56.988	ID:3	trash = 9 (gen_trash = 8)
+03:57.043	ID:7	trash = 99 (gen_trash = 3)
+03:58.685	ID:4	ALERT message sent
+03:58.777	ID:8	incoming message: ALERT_MSG
+03:59.636	ID:5	trash = 70 (gen_trash = 2)
+04:00.096	ID:1	trash = 74 (gen_trash = 4)
+04:05.043	ID:7	ALERT message sent
+04:05.153	ID:8	incoming message: ALERT_MSG
+04:05.988	ID:3	trash = 13 (gen_trash = 4)
+04:08.685	ID:4	ALERT message sent
+04:08.778	ID:8	incoming message: ALERT_MSG
+04:09.096	ID:1	trash = 76 (gen_trash = 2)
+04:09.271	ID:2	trash = 63 (gen_trash = 7)
+04:11.043	ID:7	trash = 99 (gen_trash = 5)
+04:11.045	ID:7	entering neighbor mode
+04:11.082	ID:1	incoming message: MOVE_MSG
+04:11.122	ID:5	incoming message: MOVE_MSG
+04:11.163	ID:6	incoming message: MOVE_MSG
+04:11.406	ID:7	incoming message: MOVE_REPLY
+04:11.656	ID:7	incoming message: MOVE_REPLY
+04:12.031	ID:7	incoming message: MOVE_REPLY
+04:13.043	ID:7	sending trash to 1
+04:13.084	ID:1	incoming message: TRASH_MSG
+04:13.085	ID:1	trash = 81
+04:13.157	ID:8	arrived to node 7
+04:13.281	ID:7	incoming message: TRUCK_MSG
+04:13.281	ID:7	trash = 0
+04:14.685	ID:4	trash = 96 (gen_trash = 6)
+04:16.636	ID:5	trash = 73 (gen_trash = 3)
+04:17.685	ID:4	trash = 96 (gen_trash = 4)
+04:17.687	ID:4	entering neighbor mode
+04:17.724	ID:3	incoming message: MOVE_MSG
+04:17.746	ID:5	incoming message: MOVE_MSG
+04:17.756	ID:2	incoming message: MOVE_MSG
+04:18.048	ID:4	incoming message: MOVE_REPLY
+04:18.298	ID:4	incoming message: MOVE_REPLY
+04:18.672	ID:4	incoming message: MOVE_REPLY
+04:18.749	ID:4	ALERT message sent
+04:18.776	ID:8	incoming message: ALERT_MSG
+04:18.777	ID:8	traveling to 4
+04:18.779	ID:8	travel_time = 11
+04:19.685	ID:4	sending trash to 3
+04:19.726	ID:3	incoming message: TRASH_MSG
+04:19.727	ID:3	trash = 17
+04:21.271	ID:2	trash = 69 (gen_trash = 6)
+04:23.427	ID:6	trash = 7 (gen_trash = 3)
+04:24.988	ID:3	trash = 19 (gen_trash = 2)
+04:27.988	ID:3	trash = 25 (gen_trash = 6)
+04:28.748	ID:4	ALERT message sent
+04:28.777	ID:8	incoming message: ALERT_MSG
+04:29.775	ID:8	arrived to node 4
+04:29.923	ID:4	incoming message: TRUCK_MSG
+04:29.923	ID:4	trash = 0
+04:30.636	ID:5	trash = 80 (gen_trash = 7)
+04:30.988	ID:3	trash = 27 (gen_trash = 2)
+04:34.685	ID:4	trash = 4 (gen_trash = 4)
+04:37.043	ID:7	trash = 6 (gen_trash = 6)
+04:38.096	ID:1	trash = 83 (gen_trash = 2)
+04:41.427	ID:6	trash = 12 (gen_trash = 5)
+04:43.685	ID:4	trash = 8 (gen_trash = 4)
+04:46.271	ID:2	trash = 73 (gen_trash = 4)
+04:47.988	ID:3	trash = 29 (gen_trash = 2)
+04:53.096	ID:1	trash = 89 (gen_trash = 6)
+04:53.099	ID:1	ALERT message sent
+04:53.152	ID:8	incoming message: ALERT_MSG
+04:53.153	ID:8	traveling to 1
+04:53.155	ID:8	travel_time = 26
+04:53.271	ID:2	trash = 75 (gen_trash = 2)
+04:54.043	ID:7	trash = 10 (gen_trash = 4)
+04:54.988	ID:3	trash = 37 (gen_trash = 8)
+04:56.096	ID:1	trash = 95 (gen_trash = 6)
+04:57.427	ID:6	trash = 17 (gen_trash = 5)
+04:59.096	ID:1	trash = 95 (gen_trash = 8)
+04:59.098	ID:1	entering neighbor mode
+04:59.131	ID:2	incoming message: MOVE_MSG
+04:59.154	ID:7	incoming message: MOVE_MSG
+04:59.164	ID:6	incoming message: MOVE_MSG
+04:59.458	ID:1	incoming message: MOVE_REPLY
+04:59.584	ID:1	incoming message: MOVE_REPLY
+04:59.708	ID:1	incoming message: MOVE_REPLY
+05:00.636	ID:5	trash = 81 (gen_trash = 1)
+05:01.096	ID:1	sending trash to 6
+05:01.165	ID:6	incoming message: TRASH_MSG
+05:01.166	ID:6	trash = 25
+05:01.989	ID:3	trash = 47 (gen_trash = 10)
+05:03.097	ID:1	ALERT message sent
+05:03.153	ID:8	incoming message: ALERT_MSG
+05:04.271	ID:2	trash = 84 (gen_trash = 9)
+05:04.685	ID:4	trash = 10 (gen_trash = 2)
+05:10.636	ID:5	trash = 88 (gen_trash = 7)
+05:10.639	ID:5	ALERT message sent
+05:10.778	ID:8	incoming message: ALERT_MSG
+05:12.096	ID:1	trash = 99 (gen_trash = 4)
+05:13.097	ID:1	ALERT message sent
+05:13.152	ID:8	incoming message: ALERT_MSG
+05:16.271	ID:2	trash = 89 (gen_trash = 5)
+05:16.274	ID:2	ALERT message sent
+05:16.403	ID:8	incoming message: ALERT_MSG
+05:17.043	ID:7	trash = 17 (gen_trash = 7)
+05:19.157	ID:8	arrived to node 1
+05:19.208	ID:1	incoming message: TRUCK_MSG
+05:19.209	ID:1	trash = 0
+05:20.636	ID:5	ALERT message sent
+05:20.777	ID:8	incoming message: ALERT_MSG
+05:20.778	ID:8	traveling to 5
+05:20.780	ID:8	travel_time = 17
+05:23.427	ID:6	trash = 26 (gen_trash = 1)
+05:26.271	ID:2	ALERT message sent
+05:26.401	ID:8	incoming message: ALERT_MSG
+05:27.096	ID:1	trash = 8 (gen_trash = 8)
+05:28.989	ID:3	trash = 57 (gen_trash = 10)
+05:29.685	ID:4	trash = 16 (gen_trash = 6)
+05:30.272	ID:2	trash = 96 (gen_trash = 7)
+05:30.636	ID:5	ALERT message sent
+05:31.043	ID:7	trash = 20 (gen_trash = 3)
+05:32.659	ID:5	trash = 91 (gen_trash = 3)
+05:33.403	ID:8	incoming message: ALERT_MSG
+05:36.271	ID:2	ALERT message sent
+05:36.401	ID:8	incoming message: ALERT_MSG
+05:37.783	ID:8	arrived to node 5
+05:37.873	ID:5	incoming message: TRUCK_MSG
+05:37.873	ID:5	trash = 0
+05:43.043	ID:7	trash = 27 (gen_trash = 7)
+05:45.427	ID:6	trash = 31 (gen_trash = 5)
+05:46.271	ID:2	ALERT message sent
+05:46.402	ID:8	incoming message: ALERT_MSG
+05:46.404	ID:8	traveling to 2
+05:46.406	ID:8	travel_time = 11
+05:48.659	ID:5	trash = 9 (gen_trash = 9)
+05:49.043	ID:7	trash = 36 (gen_trash = 9)
+05:50.097	ID:1	trash = 18 (gen_trash = 10)
+05:51.043	ID:7	trash = 43 (gen_trash = 7)
+05:54.272	ID:2	trash = 97 (gen_trash = 1)
+05:54.685	ID:4	trash = 26 (gen_trash = 10)
+05:55.988	ID:3	trash = 59 (gen_trash = 2)
+05:57.096	ID:1	trash = 26 (gen_trash = 8)
+05:57.132	ID:2	ALERT message sent
+05:57.279	ID:8	incoming message: ALERT_MSG
+05:57.407	ID:8	arrived to node 2
+05:57.507	ID:2	incoming message: TRUCK_MSG
+05:57.508	ID:2	trash = 0
+06:05.685	ID:4	trash = 30 (gen_trash = 4)
+06:07.427	ID:6	trash = 40 (gen_trash = 9)
+06:08.270	ID:2	trash = 9 (gen_trash = 9)
+06:12.659	ID:5	trash = 10 (gen_trash = 1)
+06:13.043	ID:7	trash = 46 (gen_trash = 3)
+06:18.096	ID:1	trash = 28 (gen_trash = 2)
+06:20.659	ID:5	trash = 11 (gen_trash = 1)
+06:21.043	ID:7	trash = 47 (gen_trash = 1)
+06:22.685	ID:4	trash = 38 (gen_trash = 8)
+06:22.988	ID:3	trash = 65 (gen_trash = 6)
+06:27.096	ID:1	trash = 34 (gen_trash = 6)
+06:27.427	ID:6	trash = 43 (gen_trash = 3)
+06:28.096	ID:1	trash = 42 (gen_trash = 8)
+06:28.659	ID:5	trash = 16 (gen_trash = 5)
+06:29.097	ID:1	trash = 52 (gen_trash = 10)
+06:32.096	ID:1	trash = 58 (gen_trash = 6)
+06:32.271	ID:2	trash = 14 (gen_trash = 5)
+06:34.659	ID:5	trash = 23 (gen_trash = 7)
+06:35.685	ID:4	trash = 44 (gen_trash = 6)
+06:42.271	ID:2	trash = 15 (gen_trash = 1)
+06:43.043	ID:7	trash = 50 (gen_trash = 3)
+06:45.989	ID:3	trash = 75 (gen_trash = 10)
+06:47.427	ID:6	trash = 46 (gen_trash = 3)
+06:51.097	ID:1	trash = 68 (gen_trash = 10)
+06:52.096	ID:1	trash = 76 (gen_trash = 8)
+06:52.271	ID:2	trash = 22 (gen_trash = 7)
+06:56.659	ID:5	trash = 32 (gen_trash = 9)
+07:00.685	ID:4	trash = 48 (gen_trash = 4)
+07:01.427	ID:6	trash = 55 (gen_trash = 9)
+07:04.659	ID:5	trash = 39 (gen_trash = 7)
+07:07.043	ID:7	trash = 55 (gen_trash = 5)
+07:10.988	ID:3	trash = 81 (gen_trash = 6)
+07:13.096	ID:1	trash = 78 (gen_trash = 2)
+07:17.427	ID:6	trash = 60 (gen_trash = 5)
+07:20.271	ID:2	trash = 29 (gen_trash = 7)
+07:23.988	ID:3	trash = 89 (gen_trash = 8)
+07:23.991	ID:3	ALERT message sent
+07:24.028	ID:8	incoming message: ALERT_MSG
+07:24.030	ID:8	traveling to 3
+07:24.032	ID:8	travel_time = 16
+07:24.096	ID:1	trash = 82 (gen_trash = 4)
+07:24.271	ID:2	trash = 30 (gen_trash = 1)
+07:25.043	ID:7	trash = 58 (gen_trash = 3)
+07:25.427	ID:6	trash = 69 (gen_trash = 9)
+07:26.271	ID:2	trash = 33 (gen_trash = 3)
+07:27.685	ID:4	trash = 52 (gen_trash = 4)
+07:30.271	ID:2	trash = 36 (gen_trash = 3)
+07:30.659	ID:5	trash = 42 (gen_trash = 3)
+07:33.989	ID:3	ALERT message sent
+07:34.401	ID:8	incoming message: ALERT_MSG
+07:40.032	ID:8	arrived to node 3
+07:40.099	ID:3	incoming message: TRUCK_MSG
+07:40.100	ID:3	trash = 0
+07:42.685	ID:4	trash = 58 (gen_trash = 6)
+07:43.427	ID:6	trash = 70 (gen_trash = 1)
+07:45.096	ID:1	trash = 84 (gen_trash = 2)
+07:46.988	ID:3	trash = 1 (gen_trash = 1)
+07:49.043	ID:7	trash = 61 (gen_trash = 3)
+07:54.271	ID:2	trash = 45 (gen_trash = 9)
+07:54.659	ID:5	trash = 43 (gen_trash = 1)
+07:56.988	ID:3	trash = 4 (gen_trash = 3)
+07:58.271	ID:2	trash = 48 (gen_trash = 3)
+07:59.685	ID:4	trash = 60 (gen_trash = 2)
+08:00.096	ID:1	trash = 86 (gen_trash = 2)
+08:00.099	ID:1	ALERT message sent
+08:00.152	ID:8	incoming message: ALERT_MSG
+08:00.154	ID:8	traveling to 1
+08:00.156	ID:8	travel_time = 24
+08:02.271	ID:2	trash = 51 (gen_trash = 3)
+08:02.659	ID:5	trash = 46 (gen_trash = 3)
+08:04.659	ID:5	trash = 47 (gen_trash = 1)
+08:06.685	ID:4	trash = 64 (gen_trash = 4)
+08:10.097	ID:1	ALERT message sent
+08:10.153	ID:8	incoming message: ALERT_MSG
+08:11.427	ID:6	trash = 75 (gen_trash = 5)
+08:13.043	ID:7	trash = 66 (gen_trash = 5)
+08:13.096	ID:1	trash = 92 (gen_trash = 6)
+08:14.659	ID:5	trash = 50 (gen_trash = 3)
+08:20.097	ID:1	ALERT message sent
+08:20.153	ID:8	incoming message: ALERT_MSG
+08:20.988	ID:3	trash = 7 (gen_trash = 3)
+08:23.685	ID:4	trash = 70 (gen_trash = 6)
+08:24.157	ID:8	arrived to node 1
+08:25.427	ID:6	trash = 78 (gen_trash = 3)
+08:26.271	ID:2	trash = 56 (gen_trash = 5)
+08:28.685	ID:4	trash = 80 (gen_trash = 10)
+08:30.097	ID:1	ALERT message sent
+08:30.153	ID:8	incoming message: ALERT_MSG
+08:30.154	ID:8	traveling to 1
+08:30.156	ID:8	travel_time = 0
+08:30.160	ID:8	arrived to node 1
+08:30.212	ID:1	incoming message: TRUCK_MSG
+08:30.213	ID:1	trash = 0
+08:33.427	ID:6	trash = 81 (gen_trash = 3)
+08:34.096	ID:1	trash = 9 (gen_trash = 9)
+08:34.659	ID:5	trash = 55 (gen_trash = 5)
+08:37.427	ID:6	trash = 84 (gen_trash = 3)
+08:39.043	ID:7	trash = 73 (gen_trash = 7)
+08:40.271	ID:2	trash = 63 (gen_trash = 7)
+08:41.685	ID:4	trash = 88 (gen_trash = 8)
+08:41.688	ID:4	ALERT message sent
+08:41.777	ID:8	incoming message: ALERT_MSG
+08:41.778	ID:8	traveling to 4
+08:41.780	ID:8	travel_time = 26
+08:44.096	ID:1	trash = 16 (gen_trash = 7)
+08:44.659	ID:5	trash = 64 (gen_trash = 9)
+08:46.659	ID:5	trash = 73 (gen_trash = 9)
+08:48.685	ID:4	trash = 92 (gen_trash = 4)
+08:48.988	ID:3	trash = 14 (gen_trash = 7)
+08:51.685	ID:4	ALERT message sent
+08:51.778	ID:8	incoming message: ALERT_MSG
+08:54.096	ID:1	trash = 19 (gen_trash = 3)
+09:01.685	ID:4	ALERT message sent
+09:01.778	ID:8	incoming message: ALERT_MSG
+09:02.271	ID:2	trash = 70 (gen_trash = 7)
+09:02.659	ID:5	trash = 82 (gen_trash = 9)
+09:05.687	ID:4	trash = 92 (gen_trash = 10)
+09:05.690	ID:4	entering neighbor mode
+09:05.725	ID:3	incoming message: MOVE_MSG
+09:05.748	ID:5	incoming message: MOVE_MSG
+09:05.756	ID:2	incoming message: MOVE_MSG
+09:06.048	ID:4	incoming message: MOVE_REPLY
+09:06.546	ID:4	incoming message: MOVE_REPLY
+09:07.427	ID:6	trash = 89 (gen_trash = 5)
+09:07.430	ID:6	ALERT message sent
+09:07.526	ID:8	incoming message: ALERT_MSG
+09:07.692	ID:4	sending trash to 3
+09:07.782	ID:8	arrived to node 4
+09:08.052	ID:4	incoming message: TRUCK_MSG
+09:08.052	ID:4	trash = 0
+09:08.659	ID:5	trash = 83 (gen_trash = 1)
+09:09.043	ID:7	trash = 82 (gen_trash = 9)
+09:09.101	ID:3	incoming message: TRASH_MSG
+09:09.102	ID:3	trash = 24
+09:10.988	ID:3	trash = 29 (gen_trash = 5)
+09:17.428	ID:6	ALERT message sent
+09:17.527	ID:8	incoming message: ALERT_MSG
+09:17.528	ID:8	traveling to 6
+09:17.531	ID:8	travel_time = 21
+09:20.988	ID:3	trash = 30 (gen_trash = 1)
+09:21.427	ID:6	trash = 94 (gen_trash = 5)
+09:22.096	ID:1	trash = 20 (gen_trash = 1)
+09:24.988	ID:3	trash = 39 (gen_trash = 9)
+09:25.427	ID:6	trash = 95 (gen_trash = 1)
+09:27.428	ID:6	ALERT message sent
+09:27.528	ID:8	incoming message: ALERT_MSG
+09:28.685	ID:4	trash = 8 (gen_trash = 8)
+09:31.427	ID:6	trash = 96 (gen_trash = 1)
+09:32.271	ID:2	trash = 80 (gen_trash = 10)
+09:36.659	ID:5	trash = 92 (gen_trash = 9)
+09:36.662	ID:5	ALERT message sent
+09:36.778	ID:8	incoming message: ALERT_MSG
+09:37.043	ID:7	trash = 91 (gen_trash = 9)
+09:37.046	ID:7	ALERT message sent
+09:37.152	ID:8	incoming message: ALERT_MSG
+09:37.428	ID:6	ALERT message sent
+09:37.528	ID:8	incoming message: ALERT_MSG
+09:38.532	ID:8	arrived to node 6
+09:38.665	ID:6	incoming message: TRUCK_MSG
+09:38.666	ID:6	trash = 0
+09:42.988	ID:3	trash = 48 (gen_trash = 9)
+09:44.096	ID:1	trash = 21 (gen_trash = 1)
+09:46.659	ID:5	ALERT message sent
+09:46.777	ID:8	incoming message: ALERT_MSG
+09:46.779	ID:8	traveling to 5
+09:46.781	ID:8	travel_time = 16
+09:47.043	ID:7	ALERT message sent
+09:47.153	ID:8	incoming message: ALERT_MSG
+09:47.685	ID:4	trash = 18 (gen_trash = 10)
+09:51.271	ID:2	trash = 86 (gen_trash = 6)
+09:51.274	ID:2	ALERT message sent
+09:51.404	ID:8	incoming message: ALERT_MSG
+09:51.427	ID:6	trash = 9 (gen_trash = 9)
+09:52.271	ID:2	trash = 92 (gen_trash = 6)
+09:52.685	ID:4	trash = 22 (gen_trash = 4)
+09:56.096	ID:1	trash = 26 (gen_trash = 5)
+09:56.659	ID:5	ALERT message sent
+09:56.777	ID:8	incoming message: ALERT_MSG
+09:57.043	ID:7	ALERT message sent
+09:57.151	ID:8	incoming message: ALERT_MSG
+10:01.271	ID:2	ALERT message sent
+10:02.782	ID:8	arrived to node 5
+10:02.873	ID:5	incoming message: TRUCK_MSG
+10:02.874	ID:5	trash = 0
+10:03.043	ID:7	trash = 96 (gen_trash = 5)
+10:05.427	ID:6	trash = 14 (gen_trash = 5)
+10:05.685	ID:4	trash = 30 (gen_trash = 8)
+10:06.659	ID:5	trash = 9 (gen_trash = 9)
+10:06.777	ID:8	incoming message: ALERT_MSG
+10:06.778	ID:8	traveling to 2
+10:06.781	ID:8	travel_time = 11
+10:07.043	ID:7	ALERT message sent
+10:07.653	ID:8	incoming message: ALERT_MSG
+10:08.988	ID:3	trash = 57 (gen_trash = 9)
+10:10.096	ID:1	trash = 33 (gen_trash = 7)
+10:11.045	ID:7	trash = 96 (gen_trash = 5)
+10:11.048	ID:7	entering neighbor mode
+10:11.081	ID:1	incoming message: MOVE_MSG
+10:11.120	ID:5	incoming message: MOVE_MSG
+10:11.162	ID:6	incoming message: MOVE_MSG
+10:11.405	ID:7	incoming message: MOVE_REPLY
+10:11.780	ID:7	incoming message: MOVE_REPLY
+10:11.906	ID:7	incoming message: MOVE_REPLY
+10:12.386	ID:2	ALERT message sent
+10:12.657	ID:8	incoming message: ALERT_MSG
+10:13.050	ID:7	sending trash to 1
+10:14.685	ID:4	trash = 38 (gen_trash = 8)
+10:15.427	ID:6	trash = 16 (gen_trash = 2)
+10:16.833	ID:1	incoming message: TRASH_MSG
+10:16.834	ID:1	trash = 38
+10:17.043	ID:7	ALERT message sent
+10:17.153	ID:8	incoming message: ALERT_MSG
+10:17.782	ID:8	arrived to node 2
+10:17.884	ID:2	incoming message: TRUCK_MSG
+10:17.884	ID:2	trash = 0
+10:19.271	ID:2	trash = 1 (gen_trash = 1)
+10:22.988	ID:3	trash = 60 (gen_trash = 3)
+10:27.043	ID:7	ALERT message sent
+10:27.152	ID:8	incoming message: ALERT_MSG
+10:27.153	ID:8	traveling to 7
+10:27.156	ID:8	travel_time = 29
+10:35.685	ID:4	trash = 46 (gen_trash = 8)
+10:36.659	ID:5	trash = 11 (gen_trash = 2)
+10:37.043	ID:7	ALERT message sent
+10:37.046	ID:7	trash = 96 (gen_trash = 6)
+10:37.049	ID:7	entering neighbor mode
+10:37.123	ID:5	incoming message: MOVE_MSG
+10:37.278	ID:8	incoming message: ALERT_MSG
+10:37.655	ID:7	incoming message: MOVE_REPLY
+10:38.096	ID:1	trash = 39 (gen_trash = 1)
+10:39.050	ID:7	sending trash to 5
+10:39.124	ID:5	incoming message: TRASH_MSG
+10:39.125	ID:5	trash = 17
+10:40.427	ID:6	trash = 26 (gen_trash = 10)
+10:41.659	ID:5	trash = 23 (gen_trash = 6)
+10:43.427	ID:6	trash = 28 (gen_trash = 2)
+10:45.270	ID:2	trash = 8 (gen_trash = 7)
+10:47.043	ID:7	ALERT message sent
+10:47.151	ID:8	incoming message: ALERT_MSG
+10:48.988	ID:3	trash = 69 (gen_trash = 9)
+10:50.096	ID:1	trash = 42 (gen_trash = 3)
+10:56.157	ID:8	arrived to node 7
+10:57.043	ID:7	ALERT message sent
+10:57.152	ID:8	incoming message: ALERT_MSG
+10:57.154	ID:8	traveling to 7
+10:57.155	ID:8	travel_time = 0
+10:57.159	ID:8	arrived to node 7
+10:57.284	ID:7	incoming message: TRUCK_MSG
+10:57.284	ID:7	trash = 0
+11:00.685	ID:4	trash = 48 (gen_trash = 2)
+11:02.043	ID:7	trash = 5 (gen_trash = 5)
+11:07.271	ID:2	trash = 13 (gen_trash = 5)
+11:08.659	ID:5	trash = 31 (gen_trash = 8)
+11:10.988	ID:3	trash = 78 (gen_trash = 9)
+11:11.685	ID:4	trash = 50 (gen_trash = 2)
+11:12.427	ID:6	trash = 30 (gen_trash = 2)
+11:18.096	ID:1	trash = 47 (gen_trash = 5)
+11:24.043	ID:7	trash = 14 (gen_trash = 9)
+11:27.271	ID:2	trash = 14 (gen_trash = 1)
+11:28.988	ID:3	trash = 87 (gen_trash = 9)
+11:28.991	ID:3	ALERT message sent
+11:29.027	ID:8	incoming message: ALERT_MSG
+11:29.029	ID:8	traveling to 3
+11:29.031	ID:8	travel_time = 21
+11:30.685	ID:4	trash = 54 (gen_trash = 4)
+11:33.659	ID:5	trash = 33 (gen_trash = 2)
+11:35.271	ID:2	trash = 19 (gen_trash = 5)
+11:37.271	ID:2	trash = 22 (gen_trash = 3)
+11:37.427	ID:6	trash = 40 (gen_trash = 10)
+11:38.096	ID:1	trash = 48 (gen_trash = 1)
+11:38.989	ID:3	ALERT message sent
+11:39.028	ID:8	incoming message: ALERT_MSG
+11:46.989	ID:3	trash = 96 (gen_trash = 9)
+11:48.989	ID:3	ALERT message sent
+11:49.401	ID:8	incoming message: ALERT_MSG
+11:50.032	ID:8	arrived to node 3
+11:50.101	ID:3	incoming message: TRUCK_MSG
+11:50.102	ID:3	trash = 0
+11:50.659	ID:5	trash = 41 (gen_trash = 8)
+11:52.043	ID:7	trash = 15 (gen_trash = 1)
+11:53.685	ID:4	trash = 62 (gen_trash = 8)
+12:04.096	ID:1	trash = 49 (gen_trash = 1)
+12:04.427	ID:6	trash = 48 (gen_trash = 8)
+12:05.271	ID:2	trash = 31 (gen_trash = 9)
+12:07.427	ID:6	trash = 54 (gen_trash = 6)
+12:08.685	ID:4	trash = 64 (gen_trash = 2)
+12:13.685	ID:4	trash = 66 (gen_trash = 2)
+12:16.685	ID:4	trash = 68 (gen_trash = 2)
+12:16.988	ID:3	trash = 8 (gen_trash = 8)
+12:19.659	ID:5	trash = 51 (gen_trash = 10)
+12:19.685	ID:4	trash = 72 (gen_trash = 4)
+12:20.427	ID:6	trash = 58 (gen_trash = 4)
+12:22.043	ID:7	trash = 24 (gen_trash = 9)
+12:23.271	ID:2	trash = 36 (gen_trash = 5)
+12:23.427	ID:6	trash = 62 (gen_trash = 4)
+12:28.096	ID:1	trash = 54 (gen_trash = 5)
+12:28.659	ID:5	trash = 61 (gen_trash = 10)
+12:29.988	ID:3	trash = 16 (gen_trash = 8)
+12:32.685	ID:4	trash = 78 (gen_trash = 6)
+12:37.271	ID:2	trash = 37 (gen_trash = 1)
+12:44.427	ID:6	trash = 66 (gen_trash = 4)
+12:44.988	ID:3	trash = 22 (gen_trash = 6)
+12:48.043	ID:7	trash = 27 (gen_trash = 3)
+12:49.685	ID:4	trash = 84 (gen_trash = 6)
+12:54.096	ID:1	trash = 55 (gen_trash = 1)
+12:55.659	ID:5	trash = 69 (gen_trash = 8)
+12:55.988	ID:3	trash = 28 (gen_trash = 6)
+12:57.427	ID:6	trash = 70 (gen_trash = 4)
+12:58.988	ID:3	trash = 32 (gen_trash = 4)
+12:59.271	ID:2	trash = 42 (gen_trash = 5)
+13:00.685	ID:4	trash = 86 (gen_trash = 2)
+13:00.688	ID:4	ALERT message sent
+13:00.777	ID:8	incoming message: ALERT_MSG
+13:00.779	ID:8	traveling to 4
+13:00.781	ID:8	travel_time = 18
+13:02.043	ID:7	trash = 30 (gen_trash = 3)
+13:02.096	ID:1	trash = 56 (gen_trash = 1)
+13:06.659	ID:5	trash = 73 (gen_trash = 4)
+13:07.988	ID:3	trash = 40 (gen_trash = 8)
+13:10.685	ID:4	ALERT message sent
+13:10.777	ID:8	incoming message: ALERT_MSG
+13:11.685	ID:4	trash = 94 (gen_trash = 8)
+13:12.989	ID:3	trash = 50 (gen_trash = 10)
+13:18.685	ID:4	trash = 94 (gen_trash = 8)
+13:18.687	ID:4	entering neighbor mode
+13:18.724	ID:3	incoming message: MOVE_MSG
+13:18.746	ID:5	incoming message: MOVE_MSG
+13:18.756	ID:2	incoming message: MOVE_MSG
+13:18.782	ID:8	arrived to node 4
+13:18.923	ID:4	incoming message: TRUCK_MSG
+13:18.923	ID:4	trash = 0
+13:19.546	ID:4	incoming message: MOVE_REPLY
+13:20.427	ID:6	trash = 74 (gen_trash = 4)
+13:20.685	ID:4	sending trash to 5
+13:21.749	ID:5	incoming message: TRASH_MSG
+13:21.750	ID:5	trash = 81
+13:21.988	ID:3	trash = 56 (gen_trash = 6)
+13:22.043	ID:7	trash = 35 (gen_trash = 5)
+13:22.096	ID:1	trash = 61 (gen_trash = 5)
+13:25.685	ID:4	trash = 1 (gen_trash = 1)
+13:29.271	ID:2	trash = 47 (gen_trash = 5)
+13:30.043	ID:7	trash = 44 (gen_trash = 9)
+13:31.659	ID:5	trash = 85 (gen_trash = 4)
+13:31.662	ID:5	ALERT message sent
+13:36.043	ID:7	trash = 47 (gen_trash = 3)
+13:37.427	ID:6	trash = 84 (gen_trash = 10)
+13:41.659	ID:5	ALERT message sent
+13:44.403	ID:8	incoming message: ALERT_MSG
+13:44.404	ID:8	traveling to 5
+13:44.407	ID:8	travel_time = 37
+13:44.988	ID:3	trash = 60 (gen_trash = 4)
+13:45.271	ID:2	trash = 52 (gen_trash = 5)
+13:46.043	ID:7	trash = 54 (gen_trash = 7)
+13:47.685	ID:4	trash = 6 (gen_trash = 5)
+13:48.043	ID:7	trash = 61 (gen_trash = 7)
+13:48.096	ID:1	trash = 64 (gen_trash = 3)
+13:50.043	ID:7	trash = 68 (gen_trash = 7)
+13:51.659	ID:5	ALERT message sent
+13:51.685	ID:4	trash = 11 (gen_trash = 5)
+13:51.777	ID:8	incoming message: ALERT_MSG
+13:53.271	ID:2	trash = 59 (gen_trash = 7)
+13:55.988	ID:3	trash = 66 (gen_trash = 6)
+13:58.659	ID:5	trash = 93 (gen_trash = 8)
+14:01.660	ID:5	ALERT message sent
+14:01.777	ID:8	incoming message: ALERT_MSG
+14:05.271	ID:2	trash = 66 (gen_trash = 7)
+14:06.427	ID:6	trash = 88 (gen_trash = 4)
+14:06.430	ID:6	ALERT message sent
+14:06.528	ID:8	incoming message: ALERT_MSG
+14:08.096	ID:1	trash = 65 (gen_trash = 1)
+14:11.659	ID:5	ALERT message sent
+14:14.028	ID:8	incoming message: ALERT_MSG
+14:15.427	ID:6	trash = 98 (gen_trash = 10)
+14:16.043	ID:7	trash = 71 (gen_trash = 3)
+14:16.096	ID:1	trash = 66 (gen_trash = 1)
+14:16.428	ID:6	ALERT message sent
+14:16.527	ID:8	incoming message: ALERT_MSG
+14:18.427	ID:6	trash = 98 (gen_trash = 6)
+14:18.429	ID:6	entering neighbor mode
+14:18.458	ID:1	incoming message: MOVE_MSG
+14:18.497	ID:5	incoming message: MOVE_MSG
+14:18.527	ID:7	incoming message: MOVE_MSG
+14:18.790	ID:6	incoming message: MOVE_REPLY
+14:18.988	ID:3	trash = 70 (gen_trash = 4)
+14:19.685	ID:4	trash = 14 (gen_trash = 3)
+14:20.427	ID:6	sending trash to 7
+14:20.530	ID:7	incoming message: TRASH_MSG
+14:20.531	ID:7	trash = 77
+14:21.407	ID:8	arrived to node 5
+14:21.498	ID:5	incoming message: TRUCK_MSG
+14:21.498	ID:5	trash = 0
+14:21.659	ID:5	trash = 9 (gen_trash = 9)
+14:22.043	ID:7	trash = 84 (gen_trash = 7)
+14:24.096	ID:1	trash = 75 (gen_trash = 9)
+14:26.096	ID:1	trash = 82 (gen_trash = 7)
+14:26.428	ID:6	ALERT message sent
+14:26.528	ID:8	incoming message: ALERT_MSG
+14:26.529	ID:8	traveling to 6
+14:26.531	ID:8	travel_time = 16
+14:27.988	ID:3	trash = 78 (gen_trash = 8)
+14:31.427	ID:6	trash = 98 (gen_trash = 4)
+14:31.429	ID:6	entering neighbor mode
+14:31.458	ID:1	incoming message: MOVE_MSG
+14:31.497	ID:5	incoming message: MOVE_MSG
+14:31.527	ID:7	incoming message: MOVE_MSG
+14:31.664	ID:6	incoming message: MOVE_REPLY
+14:31.789	ID:6	incoming message: MOVE_REPLY
+14:32.040	ID:6	incoming message: MOVE_REPLY
+14:32.096	ID:1	trash = 85 (gen_trash = 3)
+14:32.099	ID:1	ALERT message sent
+14:33.271	ID:2	trash = 67 (gen_trash = 1)
+14:33.427	ID:6	sending trash to 1
+14:33.459	ID:1	incoming message: TRASH_MSG
+14:33.460	ID:1	trash = 89
+14:33.685	ID:4	trash = 21 (gen_trash = 7)
+14:35.659	ID:5	trash = 10 (gen_trash = 1)
+14:36.096	ID:1	trash = 96 (gen_trash = 7)
+14:36.428	ID:6	ALERT message sent
+14:36.527	ID:8	incoming message: ALERT_MSG
+14:38.043	ID:7	trash = 87 (gen_trash = 3)
+14:38.046	ID:7	ALERT message sent
+14:38.153	ID:8	incoming message: ALERT_MSG
+14:40.096	ID:1	trash = 96 (gen_trash = 5)
+14:40.098	ID:1	entering neighbor mode
+14:40.131	ID:2	incoming message: MOVE_MSG
+14:40.154	ID:7	incoming message: MOVE_MSG
+14:40.164	ID:6	incoming message: MOVE_MSG
+14:40.458	ID:1	incoming message: MOVE_REPLY
+14:42.096	ID:1	sending trash to 2
+14:42.134	ID:2	incoming message: TRASH_MSG
+14:42.135	ID:2	trash = 72
+14:42.214	ID:1	ALERT message sent
+14:42.277	ID:8	incoming message: ALERT_MSG
+14:42.533	ID:8	arrived to node 6
+14:46.428	ID:6	ALERT message sent
+14:46.527	ID:8	incoming message: ALERT_MSG
+14:46.529	ID:8	traveling to 6
+14:46.530	ID:8	travel_time = 0
+14:46.534	ID:8	arrived to node 6
+14:46.669	ID:6	incoming message: TRUCK_MSG
+14:46.669	ID:6	trash = 0
+14:48.043	ID:7	ALERT message sent
+14:48.096	ID:1	trash = 99 (gen_trash = 3)
+14:48.152	ID:8	incoming message: ALERT_MSG
+14:48.154	ID:8	traveling to 7
+14:48.156	ID:8	travel_time = 18
+14:52.214	ID:1	ALERT message sent
+14:52.277	ID:8	incoming message: ALERT_MSG
+14:54.043	ID:7	trash = 90 (gen_trash = 3)
+14:56.427	ID:6	trash = 2 (gen_trash = 2)
+14:56.989	ID:3	trash = 88 (gen_trash = 10)
+14:56.992	ID:3	ALERT message sent
+14:57.027	ID:8	incoming message: ALERT_MSG
+14:58.043	ID:7	ALERT message sent
+14:58.154	ID:8	incoming message: ALERT_MSG
+14:59.271	ID:2	trash = 79 (gen_trash = 7)

@@ -84,7 +84,7 @@ static const struct runicast_callbacks runicast_callbacks = {recv_runicast,
                                                              sent_runicast,
                                                              timedout_runicast};
 static struct runicast_conn uc;
-static rimeaddr_t truck_addr = {{TRUCK_ADDR, 0}};
+//static rimeaddr_t truck_addr = {{TRUCK_ADDR, 0}};
 
 
 /* PROCESS: truck_proc
@@ -96,10 +96,11 @@ PROCESS_THREAD(truck_proc, ev, data){
     static struct etimer travel_timer;
     static struct etimer busy_timer;
     static truck_msg_t msg = {TRUCK_MSG};
+    static rimeaddr_t recipient = {{0, 0}};
     PROCESS_EXITHANDLER(runicast_close(&uc));
 
     PROCESS_BEGIN();
-    rimeaddr_set_node_addr(&truck_addr);
+    //rimeaddr_set_node_addr(&truck_addr);
     //printf("MY ADDRESS IS %u.%u\n", rimeaddr_node_addr.u8[0], rimeaddr_node_addr.u8[1]);
     
     unsigned short i;
@@ -124,7 +125,7 @@ PROCESS_THREAD(truck_proc, ev, data){
             // message sending
             x = serving_bin.x;
             y = serving_bin.y;
-            rimeaddr_t recipient = {{serving_bin.id, 0}};
+            recipient.u8[0] = serving_bin.id;
             while (runicast_is_transmitting(&uc)) {
                 etimer_set(&busy_timer, CLOCK_SECOND / BUSY_TIMER_DIVIDER);
                 PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&busy_timer));
@@ -132,6 +133,7 @@ PROCESS_THREAD(truck_proc, ev, data){
             packetbuf_copyfrom(&msg, sizeof(truck_msg_t));
             runicast_send(&uc, &recipient, MAX_RETRANSMISSIONS);
             traveling = FALSE;
+            printf("arrived to node %d\n", serving_bin.id);
         }
     }
     PROCESS_END();

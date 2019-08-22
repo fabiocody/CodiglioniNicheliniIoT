@@ -131,7 +131,7 @@ PROCESS_THREAD(trash_proc, ev, data) {
                     process_post(&alert_mode_proc, ALERT_EVENT, NULL);      // wake up alert mode process
                 }
             } else {
-                process_post(&full_mode_proc, FULL_EVENT, NULL);    // wale up full mode process
+                process_post(&full_mode_proc, FULL_EVENT, NULL);    // wake up full mode process
             }
             printf("trash = %u (gen_trash = %u)\n", trash, gen_trash);
         }
@@ -164,6 +164,7 @@ PROCESS_THREAD(alert_mode_proc, ev, data) {
                 }
                 packetbuf_copyfrom(&msg, sizeof(alert_msg_t));
                 runicast_send(&uc, &truck_addr, MAX_RETRANSMISSIONS);
+                puts("ALERT message sent");
 
                 // Set timer for periodic retransmission
                 etimer_set(&et, CLOCK_SECOND * ALERT_PERIOD);
@@ -190,7 +191,7 @@ PROCESS_THREAD(full_mode_proc, ev, data) {
         PROCESS_WAIT_EVENT();
         if (ev == FULL_EVENT){
             generation_mode = FALSE;
-            puts("FULL");
+            puts("entering neighbor mode");
 
             while (list_head(neighbor_list)) // neighbor_list cleaning
                 list_pop(neighbor_list);
@@ -208,7 +209,7 @@ PROCESS_THREAD(full_mode_proc, ev, data) {
             }
 
             if (min == NULL) { 
-                puts("ERROR: no replies");
+                puts("WARNING: no replies");
             } else {
                 printf("sending trash to %u\n", min->addr.u8[0]);
                 trash_msg.trash = gen_trash;
