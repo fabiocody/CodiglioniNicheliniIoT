@@ -64,7 +64,7 @@ static void recv_runicast(struct runicast_conn *c, const rimeaddr_t *from, uint8
 
 /*
  * Sent unicast message callback.
- * Just print to console 
+ * Just print to console
  */
 static void sent_runicast(struct runicast_conn *c, const rimeaddr_t *to, uint8_t retransmissions) {
     //printf("runicast message sent to %u, retransmissions %d\n", to->u8[0], retransmissions);
@@ -102,7 +102,7 @@ PROCESS_THREAD(truck_proc, ev, data){
     PROCESS_BEGIN();
     //rimeaddr_set_node_addr(&truck_addr);
     //printf("MY ADDRESS IS %u.%u\n", rimeaddr_node_addr.u8[0], rimeaddr_node_addr.u8[1]);
-    
+
     unsigned short i;
     for (i = 0; i < MAX_NODES; i++)
         history_table[i] = -1;
@@ -112,7 +112,7 @@ PROCESS_THREAD(truck_proc, ev, data){
 
     while (1) {
         PROCESS_WAIT_EVENT();
-        if (ev == TRAVEL_EVENT) { 
+        if (ev == TRAVEL_EVENT) {
             // distance calculation
             unsigned int d = distance(x, y, serving_bin.x, serving_bin.y);
             d *= BIN_TO_TRUCK_ALPHA;
@@ -138,4 +138,3 @@ PROCESS_THREAD(truck_proc, ev, data){
     }
     PROCESS_END();
 }
-
