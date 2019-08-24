@@ -73,7 +73,7 @@ Edoardo Longo
 \end{titlepage}
 
 \tableofcontents          % Required
-\listoffigures
+%\listoffigures
 \newpage
 
 \pagenumbering{arabic}
@@ -83,9 +83,9 @@ This document describes the implementation of our project for the IoT course.
 
 We decided to implement the project number 1: \textit{Waste management system}. We used Contiki as the operating system for the IoT devices and Cooja as the simulator. We also used Node-RED to make data available to the external world and to build a light dashboard to display the system status and the transmitted messages.
 
-We implemented all requested requirements by writing two different firmwares: one for the bins and one for the truck. We manually set up the requested node layout in Cooja and we randomly generated a second layout.
+We implemented all requested requirements by writing two different firmwares: one for the bins and one for the truck. We manually set up in Cooja both the requested and our own node topology.
 
-Full source code is available at our repo: \\
+Full source code is available at \\
 \url{https://github.com/fabiocody/CodiglioniNicheliniIoT}
 
 \section{Implementation design choices}
@@ -127,7 +127,7 @@ The bin firmware is composed of three main processes, one for each of the three 
     \item \texttt{full\_mode\_proc} -- handles the neighbor mode, in particular the broadcast of the \texttt{MOVE} message, the selection of the closest bin and the transmission of the exceeding trash to it.
 \end{itemize}
 
-There actually is a fourth process in the firmware, used to reply to a \texttt{MOVE} message. We chose to place this routine in a separate process and not to leave it in the unicast callback in order not to lock the communication processes.
+There actually is a fourth process in the firmware, which is only used to reply to a \texttt{MOVE} message. We chose to place this routine in a separate process and not to leave it in the unicast callback in order not to lock the communication processes.
 
 \subsection{Truck firmware}
 
@@ -156,13 +156,13 @@ In both simulation, the truck is represented by node 8.
     \begin{minipage}[t]{0.47\textwidth}
         \centering
         \includegraphics[width=0.8\textwidth]{resources/sim1}
-        \caption{Simulation 1 topology. This is the \textit{vanilla} simulation that implements the given topology. No noise track is added.}
+        \caption{Simulation 1 topology. This is the \textit{vanilla} simulation that implements the given topology. No noise trace is added.}
     \end{minipage}
     \hspace*{\fill}
     \begin{minipage}[t]{0.47\textwidth}
         \centering
         \includegraphics[width=0.9\textwidth]{resources/sim2}
-        \caption{Simulation 2 topology. The truck can still communicate with all nodes. The other open communication channel are described in the figure. We also added a maximum TX/RX success ratio of 95\% to simulate noise.}
+        \caption{Simulation 2 topology. The truck can still communicate with all nodes. The other links are described in the figure. We also added a maximum TX/RX success ratio of 95\% to simulate noise.}
     \end{minipage}
 \end{figure}
 
