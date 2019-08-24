@@ -51,6 +51,10 @@ typedef struct neighbor{
 MEMB(neighbors_memb, neighbor_t, MAX_NEIGHBORS);
 LIST(neighbor_list);
 
+/**
+ * Custom callback for broadcast received messages. 
+ * When a MOVE_MSG is received, it triggers the main process to handle it. 
+ **/
 static void broadcast_recv(struct broadcast_conn *c, const rimeaddr_t *from) {
     void *msg = packetbuf_dataptr();
     unsigned char msg_type = GET_MSG_TYPE(msg);
@@ -61,7 +65,10 @@ static void broadcast_recv(struct broadcast_conn *c, const rimeaddr_t *from) {
     } else printf("ERROR: unrecognized broadcast message of type %u received from %u\n", msg_type, from->u8[0]);
 }
 
-
+/**
+ * Custom callback for unicast received messages. Messages are filtered by msg_type field in msg struct. 
+ * Each of them is handled in a different way.
+ **/
 static void unicast_recv(struct runicast_conn *c, const rimeaddr_t *from, uint8_t seqno) {
     unsigned char from_addr = from->u8[0];
     if (history_table[from_addr] != seqno) {
@@ -69,13 +76,13 @@ static void unicast_recv(struct runicast_conn *c, const rimeaddr_t *from, uint8_
         //printf("runicast message received from %u, seqno %u\n", from->u8[0], seqno);
         void *msg = packetbuf_dataptr();
         unsigned char msg_type = GET_MSG_TYPE(msg);
-        if (msg_type == TRUCK_MSG) {
+        if (msg_type == TRUCK_MSG) { // reset trash qty and disable alert_mode
             puts("incoming message: TRUCK_MSG");
             alert_mode = FALSE;
             puts("trash = 0");
             trash = 0;
             process_post(&responses_proc, RESPONSE_TRUCK_MSG_EVENT, NULL);
-        } else if (msg_type == MOVE_REPLY) {
+        } else if (msg_type == MOVE_REPLY) { // allocate a list for neighbors and initialize struct
             puts("incoming message: MOVE_REPLY");
             move_reply_t *reply = (move_reply_t*)msg;
             neighbor_t *tmp = memb_alloc(&neighbors_memb);
@@ -86,7 +93,7 @@ static void unicast_recv(struct runicast_conn *c, const rimeaddr_t *from, uint8_
             tmp->y = reply->y;
             tmp->distance = 0;
             list_add(neighbor_list, tmp);
-        } else if (msg_type == TRASH_MSG) {
+        } else if (msg_type == TRASH_MSG) { // update le
             puts("incoming message: TRASH_MSG");
             trash_msg_t *trash_msg = (trash_msg_t *)msg;
             trash += trash_msg->trash;
@@ -97,24 +104,30 @@ static void unicast_recv(struct runicast_conn *c, const rimeaddr_t *from, uint8_
     }
 }
 
-
+/**
+ * Standard callback for unicast sent
+ **/
 static void unicast_sent(struct runicast_conn *c, const rimeaddr_t *to, uint8_t retransmissions) {
     //printf("runicast message sent to %u, retransmissions %u\n", to->u8[0], retransmissions);
 }
 
-
+/**
+ * Standard callback for unicast message timeout
+ * */
 static void unicast_timedout(struct runicast_conn *c, const rimeaddr_t *to, uint8_t retransmissions) {
     printf("ERROR: runicast message timed out when sending to %u, retransmissions %u\n", to->u8[0], retransmissions);
 }
 
-
+// Callbacks registration
 static const struct broadcast_callbacks broadcast_call = {broadcast_recv};
 static const struct runicast_callbacks unicast_call = {unicast_recv, unicast_sent, unicast_timedout};
 
 
-// TRASH GENERATION PROCESS
+/**
+ *  TRASH GENERATION PROCESS.   
+ **/
 PROCESS_THREAD(trash_proc, ev, data) {
-    static struct etimer et;
+    static struct etimer et;    // initialize recursive timer
     PROCESS_BEGIN();
     x = random_rand() % MAX_COORDINATE;    // x coordinate random initialization
     y = random_rand() % MAX_COORDINATE;    // y coordinate random initiliazation
@@ -139,8 +152,9 @@ PROCESS_THREAD(trash_proc, ev, data) {
     PROCESS_END();
 }
 
-
-// ALERT MODE PROCESS
+/**
+ *  ALERT MODE PROCESS
+ **/
 PROCESS_THREAD(alert_mode_proc, ev, data) {
     static struct etimer et;
     static struct etimer busy_timer;
@@ -175,8 +189,9 @@ PROCESS_THREAD(alert_mode_proc, ev, data) {
     PROCESS_END();
 }
 
-
-// FULL MODE PROCESS
+/**
+ *  FULL MODE PROCESS.
+ **/ 
 PROCESS_THREAD(full_mode_proc, ev, data) {
     static move_msg_t move_msg = {MOVE_MSG};
     static trash_msg_t trash_msg = {TRASH_MSG};
@@ -193,7 +208,7 @@ PROCESS_THREAD(full_mode_proc, ev, data) {
             generation_mode = FALSE;
             puts("entering neighbor mode");
 
-            while (list_head(neighbor_list)) // neighbor_list cleaning
+            while (list_head(neighbor_list))     // neighbor_list cleaning
                 list_pop(neighbor_list);
 
             packetbuf_copyfrom(&move_msg, sizeof(move_msg_t));
@@ -201,7 +216,7 @@ PROCESS_THREAD(full_mode_proc, ev, data) {
             etimer_set(&et, CLOCK_SECOND * 2);
             PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
 
-            static neighbor_t *ptr; // compute distance for each node which responded
+            static neighbor_t *ptr;     // compute distance for each node which responded
             static neighbor_t *min = NULL;
             for (ptr = list_head(neighbor_list), min = ptr; ptr; ptr = list_item_next(ptr)){
                 ptr->distance = distance(x, y, ptr->x, ptr->y);
@@ -226,8 +241,9 @@ PROCESS_THREAD(full_mode_proc, ev, data) {
     PROCESS_END();
 }
 
-
-// RESPONSES PROCESS -- Process to handle responses to other nodes' requests
+/**
+ *  RESPONSES PROCESS -- Process to handle responses to other nodes' requests.
+ **/ 
 PROCESS_THREAD(responses_proc, ev, data) {
     static struct etimer et;
     static move_msg_t move_msg;
@@ -237,7 +253,7 @@ PROCESS_THREAD(responses_proc, ev, data) {
     move_reply.y = y;
     while (1) {
         PROCESS_WAIT_EVENT();
-        if (ev == RESPONSE_MOVE_MSG_EVENT) { // handle responses to move msg
+        if (ev == RESPONSE_MOVE_MSG_EVENT) {    // handle responses to move msg
             move_msg = *(move_msg_t *)data;
             int d = distance(x, y, move_msg.x, move_msg.y);
             etimer_set(&et, CLOCK_SECOND * d * BIN_TO_BIN_ALPHA);
