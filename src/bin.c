@@ -51,10 +51,11 @@ typedef struct neighbor{
 MEMB(neighbors_memb, neighbor_t, MAX_NEIGHBORS);
 LIST(neighbor_list);
 
+
 /**
  * Custom callback for broadcast received messages. 
- * When a MOVE_MSG is received, it triggers the main process to handle it. 
- **/
+ * When a MOVE_MSG is received, it triggers a process to handle it. 
+ */
 static void broadcast_recv(struct broadcast_conn *c, const rimeaddr_t *from) {
     void *msg = packetbuf_dataptr();
     unsigned char msg_type = GET_MSG_TYPE(msg);
@@ -65,10 +66,11 @@ static void broadcast_recv(struct broadcast_conn *c, const rimeaddr_t *from) {
     } else printf("ERROR: unrecognized broadcast message of type %u received from %u\n", msg_type, from->u8[0]);
 }
 
+
 /**
- * Custom callback for unicast received messages. Messages are filtered by msg_type field in msg struct. 
+ * Custom callback for unicast received messages. Messages are filtered by the msg_type field in msg struct. 
  * Each of them is handled in a different way.
- **/
+ */
 static void unicast_recv(struct runicast_conn *c, const rimeaddr_t *from, uint8_t seqno) {
     unsigned char from_addr = from->u8[0];
     if (history_table[from_addr] != seqno) {
@@ -104,19 +106,22 @@ static void unicast_recv(struct runicast_conn *c, const rimeaddr_t *from, uint8_
     }
 }
 
+
 /**
  * Standard callback for unicast sent
- **/
+ */
 static void unicast_sent(struct runicast_conn *c, const rimeaddr_t *to, uint8_t retransmissions) {
     //printf("runicast message sent to %u, retransmissions %u\n", to->u8[0], retransmissions);
 }
 
+
 /**
- * Standard callback for unicast message timeout
- * */
+ * Standard callback for timed-out unicast message
+ */
 static void unicast_timedout(struct runicast_conn *c, const rimeaddr_t *to, uint8_t retransmissions) {
     printf("ERROR: runicast message timed out when sending to %u, retransmissions %u\n", to->u8[0], retransmissions);
 }
+
 
 // Callbacks registration
 static const struct broadcast_callbacks broadcast_call = {broadcast_recv};
@@ -125,7 +130,7 @@ static const struct runicast_callbacks unicast_call = {unicast_recv, unicast_sen
 
 /**
  *  TRASH GENERATION PROCESS.   
- **/
+ */
 PROCESS_THREAD(trash_proc, ev, data) {
     static struct etimer et;    // initialize recursive timer
     PROCESS_BEGIN();
@@ -151,6 +156,7 @@ PROCESS_THREAD(trash_proc, ev, data) {
     }
     PROCESS_END();
 }
+
 
 /**
  *  ALERT MODE PROCESS
@@ -188,6 +194,7 @@ PROCESS_THREAD(alert_mode_proc, ev, data) {
     }
     PROCESS_END();
 }
+
 
 /**
  *  FULL MODE PROCESS.
@@ -240,6 +247,7 @@ PROCESS_THREAD(full_mode_proc, ev, data) {
     }
     PROCESS_END();
 }
+
 
 /**
  *  RESPONSES PROCESS -- Process to handle responses to other nodes' requests.
