@@ -1,5 +1,4 @@
 # CodiglioniNicheliniIoT
-Project for the 2019 IoT course
-A.y 2018/2019
+Project for the 2019 IoT course.
 
-Implementation of project proposal n°1: Waste management system
+Implementation of project proposal n°1: Waste management system.
