@@ -133,4 +133,4 @@ src/symbols.*
 src/*.sky
 
 # Documentation
-doc/documentation.pdf
+#doc/documentation.pdf
